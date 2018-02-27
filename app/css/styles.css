@@ -388,16 +388,6 @@ body {
   padding: 1.2%;
   min-height: 100%; }
 
-.wf-loading * {
-  opacity: 0; }
-
-.wf-active *,
-.wf-inactive * {
-  -moz-transition: opacity 0.3s;
-  -o-transition: opacity 0.3s;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s; }
-
 .is-loading {
   overflow: hidden; }
 
@@ -429,14 +419,6 @@ body {
 .font-white {
   color: #fff2cc; }
 
-.loader {
-  background: #2c2824;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0; }
-
 .loader-top {
   z-index: 9999;
   position: fixed;
@@ -462,17 +444,6 @@ body {
   -o-transition: all 0.3s;
   -webkit-transition: all 0.3s;
   transition: all 0.3s; }
-
-.loader-wrap {
-  top: 0;
-  left: 0;
-  position: fixed;
-  background: #1E2F75;
-  opacity: 1;
-  width: 100%;
-  height: 100%;
-  z-index: 99999;
-  transform: translateX(100%); }
 
 header {
   width: 100%;
