@@ -1,0 +1,33 @@
+header {
+	width: 100%;
+	text-align: center;
+	position: fixed;
+	z-index: 99;
+	nav ul {
+		li {
+			margin: 1.25em;
+			display: inline-block;
+			a {
+				@include font(1.125em, 700, none, 1.2em);
+				position: relative;
+				&:after {
+					content: '';
+					display: block;
+					width: 100%;
+					border-bottom: 1px solid $black;
+					position: absolute;
+					bottom: -15px;
+					@include transition(all .3s);
+					opacity: 0;
+				}
+				&:hover {
+					color: $black;
+					&:after {
+						bottom: -5px;
+						opacity: 100;
+					}
+				}
+			}
+		}
+	}
+}

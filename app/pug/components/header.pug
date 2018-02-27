@@ -1,0 +1,9 @@
+header
+	.logo
+
+	nav
+		ul
+			- var list = [{name: 'About Us', direct: 'test.html'}, { name : 'Works', direct : 'index.html' }, { name : 'Members', direct : '#' }, { name : 'Contact Us', direct : '#' }]
+				each item in list
+					li: a(href=item.direct, target=item.target).font-black=item.name
+				

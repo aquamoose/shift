@@ -1,0 +1,60 @@
+button:focus {
+	outline: none;
+}
+.lines-button {
+	display: inline-block;
+	padding: $button-size/2 $button-size/4;
+	transition: .3s;
+	cursor: pointer;
+	user-select: none;
+	border: none;
+	background: none;
+	line-height: 50%;
+	vertical-align: middle;
+	position: absolute;
+	right: 5px;
+	background: none;
+	margin-top: 3px;
+	&:hover {
+		background: none;
+		.lines {
+			background: $yellow;
+			&:before {
+				background: $yellow;
+			}
+		}
+	}
+
+	&:active {
+		transition: 0;
+	}
+}
+.lines {
+	@include line;
+	position: relative;
+	&:before {
+		@include line;
+		position: absolute;
+		left:0;
+		content: '';
+		-webkit-transform-origin: 50% 50%;
+                transform-origin: 50% 50%;
+		-webkit-transform: rotate3d(0,0,1,90deg); 
+                transform: rotate3d(0,0,1,90deg);
+	}
+}
+.lines-button.x.close{
+	.lines {
+    	background: none;
+    	&:before{
+        -webkit-transform-origin: 50% 50%;
+                transform-origin: 50% 50%;
+        top:0;
+        width: $button-size;
+    }
+    &:before{
+        -webkit-transform: rotate3d(0,0,1,360deg); 
+                transform: rotate3d(0,0,1,360deg); 
+    }
+  }
+}

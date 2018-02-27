@@ -1,0 +1,28 @@
+extend layouts/index-layout.pug
+
+block script
+
+block main-content
+	.content.barba-container.content-loading(data-namespace='home')
+		.index-content
+			section
+				.new-work-wrap
+					h2.font-yellow LATEST WORK
+					.divider.bg-white
+					- var list = [{img: 'images/new-work.png', serial: '#07', tag: 'SHIFT Work', title: '3M Post-it Online Advertising'}, { img : 'images/new-work.png', serial : '#08', tag: 'SHIFT Work', title: '4M Tap-it Offline Advertising' }]
+						each item in list
+							a.new-work.font-black
+								.new-work-image
+									img(src=item.img)
+								.new-work-des
+									.new-work-des-top
+										span.new-work-serial=item.serial
+										| /
+										span.new-work-tag=item.tag
+									.new-work-des-bottom
+										p.new-work-title=item.title
+					a.new-work-box
+						span.new-work-button
+				include components/social.pug
+				include components/chat-box.pug
+				include components/copyright.pug

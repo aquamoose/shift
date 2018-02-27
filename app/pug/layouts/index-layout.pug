@@ -1,0 +1,65 @@
+doctype html
+html.no-js
+  head
+    block meta
+      meta(charset='utf-8')
+      meta(http-equiv='X-UA-Compatible', content='IE=edge')
+      title Shift Studio
+      meta(name='description', content='')
+      meta(name='viewport', content='width=device-width, initial-scale=1')
+      meta(property='og:site_name', content='Shift Studio')
+      meta(property='og:type', content='website')
+      meta(property='og:title', content='Shift Studio')
+      meta(property='og:url', content='')
+      meta(property='og:image', content='')
+      meta(property='og:description', content='')
+      <meta name="apple-mobile-web-app-title" content="Shift Studio">
+      <meta name="application-name" content="Shift Studio">
+      <meta name="theme-color" content="#ffffff">
+      script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js')
+      script(src='js/foundation.min.js')
+      script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js')
+      script(src='js/barba.min.js')
+      script(src='js/anime.min.js')
+      script(src='js/app.js')
+      link(rel='stylesheet', href='css/foundation.css')
+      link(rel='stylesheet', href='css/styles.css')
+      <script src="https://use.typekit.net/eza7gbb.js"></script>
+      <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    block styles
+    
+    script.
+      WebFontConfig = {
+        typekit: { id: 'eza7gbb' }
+      };
+
+      (function(d) {
+        var wf = d.createElement('script'), s = d.scripts[0];
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+        wf.async = true;
+        s.parentNode.insertBefore(wf, s);
+      })(document);
+    block script
+       
+  body#barba-wrapper
+    .loader-top.loader-top-close
+    .loader-bottom.loader-bottom-close
+    // Default block for the navigation
+    block header
+      include ../components/header.pug
+
+
+     
+    // Default content block
+    block main
+      block content-wrapper
+        block content-title
+        block main-content
+        
+
+    // Default footer block
+    block footer
+      
+    block bottom-script 
+    
+    
