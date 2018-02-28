@@ -774,9 +774,9 @@ button:focus {
   .lines-button:hover {
     background: none; }
     .lines-button:hover .lines {
-      background: #f3dc11; }
+      background: #4b7cb7; }
       .lines-button:hover .lines:before {
-        background: #f3dc11; }
+        background: #4b7cb7; }
   .lines-button:active {
     transition: 0; }
 
@@ -900,7 +900,7 @@ button:focus {
       -webkit-transition: all 0.3s;
       transition: all 0.3s; }
       .social-menu .social-share a:hover {
-        color: #f3dc11; }
+        color: #4b7cb7; }
   @media (max-width: 599px) {
     .social-menu {
       display: none; } }

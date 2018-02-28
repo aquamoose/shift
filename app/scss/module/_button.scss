@@ -18,9 +18,9 @@ button:focus {
 	&:hover {
 		background: none;
 		.lines {
-			background: $yellow;
+			background: $blue;
 			&:before {
-				background: $yellow;
+				background: $blue;
 			}
 		}
 	}
