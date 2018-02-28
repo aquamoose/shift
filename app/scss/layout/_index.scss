@@ -3,55 +3,55 @@
 	background-size: 85%;
 	width: 100%;
 	min-height: 100%;
-	section {
-		.new-work-wrap {
-			position: absolute;
-			left: -300px;
-			top: 0;
-			bottom: 0;
-			width: 280px;
-			background: $black url('../images/newWorkBG.png') right bottom no-repeat;
-			background-size: 100%;
-			@include transition(all .3s);
-			h2 {
-				@include font(1.75em, 700, none, 1.2em);
-				text-align: center;
-				margin-top: 30px;
-			}
-			.divider {
-				width: 40px;
-				margin: 30px auto;
-			}
-			.new-work {
-				width: 273px;
-				background: $yellow;
-				margin-bottom: 25px;
-				margin-left: 20px;
-				display: block;
-				.new-work-des {
-					padding: 3% 5%;
-					@include font(1.125em, normal, none, 1.2em);
-					.new-work-des-bottom {
-						margin-top: 5px;
-						.new-work-title {
-							font-size: 1.313em;
-							line-height: 1em;
-							margin-bottom: 0;
-						}
+	overflow: no-scroll;
+	@include for-phone-only {
+		background-size: 200%;
+	}
+	.new-work-wrap {
+		position: absolute;
+		left: -300px;
+		top: 0;
+		bottom: 0;
+		width: 280px;
+		background: $black url('../images/newWorkBG.png') 30% 150% no-repeat;
+		background-size: 200%;
+		z-index: 10;
+		@include transition(all .3s);
+		h2 {
+			@include font(1.75em, 700, none, 1.2em);
+			text-align: center;
+			margin-top: 30px;
+		}
+		.divider {
+			width: 40px;
+			margin: 30px auto;
+		}
+		.new-work {
+			width: 273px;
+			background: $yellow;
+			margin-bottom: 25px;
+			margin-left: 20px;
+			display: block;
+			.new-work-des {
+				padding: 3% 5%;
+				@include font(1.125em, normal, none, 1.2em);
+				.new-work-des-bottom {
+					margin-top: 5px;
+					.new-work-title {
+						font-size: 1.313em;
+						line-height: 1em;
+						margin-bottom: 0;
 					}
 				}
 			}
-		}
-		.new-work-wrap-open {
-			left: 0;
 		}
 		.new-work-box {
 			position: absolute;
 			display: block;
 			height: 100%;
 			min-height: 100%;
-			width: 30px;
-			right: -65px;
+			width: 40px;
+			right: -80px;
 			top: 0;
 			@include transition(all .3s);
 			&:hover {
@@ -65,7 +65,7 @@
 				width: 0;
 				height: 0;
 				border-style: solid;
-				border-width: 10px 0 10px 10px;
+				border-width: 20px 0 20px 20px;
 				border-color: transparent transparent transparent $black;
 				top: 50%;
 				transform: rotate(0);
@@ -75,8 +75,141 @@
 				transform: rotate(180deg);
 			}
 		}
+		.see-more {
+			display: none;
+			right: 25px;
+			bottom: 70px;
+			font-size: 1.5em;
+			text-align: right;
+			margin-top: 20px;
+		}
 		.new-work-box-open {
 			left: 300px;
 		}
+		@include for-phone-only {
+			position: fixed;
+			left: 0;
+			width: 100%;
+			top: 100%;
+			padding: 0 0.9375em;
+			background-position: -120% 120%;
+			background-size: 120%;
+			.new-work:first-of-type {
+				display: block;
+			}
+			.new-work {
+				width: 100%;
+				margin: 0;
+				display: none;
+				.new-work-image {
+					display: inline-block;
+					width: 190px;
+					vertical-align: top;
+				}
+				.new-work-des {
+					display: inline-block;
+					width: calc(100% - 200px);
+					.new-work-des-bottom {
+						font-size: 0.875em;
+					}
+				}
+			}
+			.new-work-box {
+				right: 0;
+				left: 0;
+				top: -50px;
+				width: 80%;
+				margin: auto;
+				min-height: 0;
+				height: 50px;
+				.new-work-button {
+					left: 0;
+					right: 0;
+					margin: auto;
+					top: 0;
+					border-width: 0 20px 20px 20px;
+					border-color: transparent transparent $black transparent;
+				}
+				&:hover {
+					.new-work-button {
+						left: 0;
+					}
+				}
+			}
+			.see-more {
+				display: block;
+			}
+		}
+	}
+	.new-work-wrap-open {
+		left: 0;
+		@include for-phone-only {
+			top: 50%;
+		}
+	}
+	.c-info {
+		width: 170px;
+		position: absolute;
+		right: 60px;
+		top: 50%;
+    	transform: translateY(-50%);
+    	@include for-phone-only {
+			display: none;
+		}
+		@include for-tablet-portrait-up {
+			.c-info-number {
+				width: 100px;
+				height: 85px;
+				span {
+					font-size: 5.5em;
+					top: -10px;
+				}
+			}	
+		}
+		@include for-tablet-landscape-up {
+			.c-info-number {
+				width: 140px;
+				height: 105px;
+				span {
+					font-size: 7em;
+					top: -13px;
+				}
+			}
+		}
+    	.c-info-box {
+    		text-align: center;
+			p {
+    			font-size: 1.125em;
+    			font-weight: bold;
+    			margin-bottom: 5px;
+    		}
+    		.c-info-number {
+    			position: relative;
+    			background: $black;
+    			margin: 0 auto 12px auto;
+    			@include radius(10px);
+    			span {
+    				position: absolute;
+    				margin: auto;
+    				left: 0;
+    				right: 0;
+    				bottom: 0;
+    				line-height: 1;
+    			}
+    			&:after {
+    				content: '';
+    				display: block;
+    				width: 0;
+					height: 0;
+					position: absolute;
+					right: -20px;
+					top: 50%;
+					transform: translateY(-50%);
+					border-style: solid;
+					border-width: 0 7.5px 13.0px 7.5px;;
+					border-color: transparent transparent $blue transparent;
+    			}
+    		}
+    	}
 	}
 }

@@ -1,0 +1,12 @@
+nav.mobile-nav
+	button.menu-button.x(type="button", role="button", aria-label="Toggle Navigation")
+		span.menu-lines
+	.mobile-menu
+		ul
+			- var list = [{name: 'About Us', direct: 'test.html'}, { name : 'Works', direct : 'index.html' }, { name : 'Members', direct : '#' }, { name : 'Contact Us', direct : '#' }]
+				each item in list
+					li: a(href=item.direct, target=item.target).font-white=item.name
+			.divider.bg-blue
+			.social-share
+				a(href="#").font-blue Facebook
+				a(href="#").font-blue Instagram

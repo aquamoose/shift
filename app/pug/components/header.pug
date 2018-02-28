@@ -1,9 +1,9 @@
 header
 	.logo
 
-	nav
+	nav.nav-menu
 		ul
-			- var list = [{name: 'About Us', direct: 'test.html'}, { name : 'Works', direct : 'index.html' }, { name : 'Members', direct : '#' }, { name : 'Contact Us', direct : '#' }]
+			- var list = [{name: 'About Us', direct: 'test.html', tag: 'about'}, { name : 'Works', direct : 'index.html', tag: 'work' }, { name : 'Members', direct : '#', tag: 'member' }, { name : 'Contact Us', direct : '#', tag: 'contact' }]
 				each item in list
-					li: a(href=item.direct, target=item.target).font-black=item.name
-				
+					li: a(href=item.direct, data-name=item.tag).font-black=item.name
+			

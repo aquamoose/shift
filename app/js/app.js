@@ -6,17 +6,23 @@ var Home = Barba.BaseView.extend({
         initHome();
     },
     onLeave: function () {},
-    onLeaveCompleted: function () {}
+    onLeaveCompleted: function () {
+    	$('.menu-button').removeClass('close');
+		$('.mobile-nav').removeClass('mobile-nav-open', 300);
+    }
 });
 var Test = Barba.BaseView.extend({
-    namespace: "test",
+    namespace: "about",
     onEnter: function () {},
     onEnterCompleted: function () {
     	preloaderTimeline();
         initHome();
     },
     onLeave: function () {},
-    onLeaveCompleted: function () {}
+    onLeaveCompleted: function () {
+    	$('.menu-button').removeClass('close');
+		$('.mobile-nav').removeClass('mobile-nav-open', 300);
+    }
 });
 function queue(start) {
 	var rest = [].splice.call(arguments, 1),
@@ -53,11 +59,9 @@ function preloaderTimeline() {
 $(function () {
 	Home.init();
 	Test.init();
+
 	Barba.Pjax.init();
     Barba.Prefetch.init();
-    Barba.Dispatcher.on('transitionCompleted', function (currentStatus, oldStatus, container) {
-        console.log('completed');
-    });
 
     var FadeTransition = Barba.BaseTransition.extend({
 	  start: function() {
@@ -117,16 +121,36 @@ $(function () {
 
 	  }
 	});
-
-	Barba.Pjax.getTransition = function() {
-	 
-	  return FadeTransition;
+    Barba.Pjax.getTransition = function() {
+ 		return FadeTransition;
 	};
+	
 	Barba.Pjax.cacheEnabled = false;
 
 });
 
 function initGlobal() {
+	$('.menu-button').click(function(e) {
+		var open = $(this).hasClass('close');
+		if(!open) {
+			$(this).addClass('close');
+			$('.mobile-nav').addClass('mobile-nav-open', 300);
+		} else {
+			$(this).removeClass('close');
+			$('.mobile-nav').removeClass('mobile-nav-open', 300);
+		}
+	});
+	$(".nav-menu ul li a").each(function() {
+		var linkAttr = $(this).attr("data-name");
+		var contentAttr = $(".content").attr("data-namespace");
+		console.log(linkAttr);
+		console.log(contentAttr);
+		if(linkAttr == contentAttr) {
+			$(this).addClass('has-link');
+		} else {
+			$(this).removeClass('has-link');
+		}
+	});
 	$('.lines-button').click(function(e) {
 		e.preventDefault();
 		$('.lines-button').toggleClass('close');
@@ -134,6 +158,7 @@ function initGlobal() {
 	});
 	$(".chat-box").click(function(e){
 		e.stopPropagation();
+		$(".chat-box img").addClass('chat-img-open');
 		queue(function(){
 			return $(".chat-box").stop().animate({width: '320'});
 		}, function(){
@@ -141,6 +166,7 @@ function initGlobal() {
 		});
 	});
 	$(document).click(function(){
+		$(".chat-box img").removeClass('chat-img-open');
 		queue(function(){
 			return $(".chat-box").stop().animate({height: '60'});
 		}, function(){

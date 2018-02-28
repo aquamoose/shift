@@ -3,7 +3,8 @@ extend layouts/index-layout.pug
 block script
 
 block main-content
-	.content.barba-container.content-loading(data-namespace='test')
+	.content.barba-container.content-loading(data-namespace='about')
+		include components/mobile-header.pug
 		.index-content
 			section
 				p test
@@ -13,6 +14,7 @@ block main-content
 				img(src="https://drscdn.500px.org/user_cover/2673601/q%3D65_m%3D2048/v2?webp=true&v=2&sig=35831f85721ffce294c367eb39c4cf00723b50f5f90ddc4c50f10da83abe2cae")
 				img(src="https://drscdn.500px.org/user_cover/2673601/q%3D65_m%3D2048/v2?webp=true&v=2&sig=35831f85721ffce294c367eb39c4cf00723b50f5f90ddc4c50f10da83abe2cae")
 				img(src="https://drscdn.500px.org/user_cover/2673601/q%3D65_m%3D2048/v2?webp=true&v=2&sig=35831f85721ffce294c367eb39c4cf00723b50f5f90ddc4c50f10da83abe2cae")
+				include components/social.pug
 				//- .new-work-wrap
 					h2.font-yellow LATEST WORK
 					.divider.bg-white
