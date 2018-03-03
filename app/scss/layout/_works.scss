@@ -1,0 +1,211 @@
+.works-content {
+	background: url(../images/workBG.png) top left repeat;
+	width: 100%;
+	min-height: 100%;
+	overflow: auto;
+	background-size: 10px 10px;
+	.works-nav {
+		width: 175px;
+		height: auto;
+		max-height: auto;
+		background: $black;
+		position: fixed;
+		left: 40px;
+		top: 7%;
+		overflow: auto;
+		.works-category-filer {
+			height: 70px;
+			width: 100%;
+			text-align: center;
+			span {
+				display: inline-block;
+				background: $yellow;
+				font-size: 0.938em;
+				padding: 3px 20px;
+				@include radius(30px);
+				margin-top: 20px;
+				border: 2px solid $blue;
+			}
+		}
+		.works-nav-img {
+			margin: 0 20px;
+			background: $white;
+			height: 80px;
+			text-align: center;
+			img {
+				height: 100%;
+			}
+		}
+		.works-category {
+			background: $black;
+			margin-top: 25px;
+			margin-bottom: 0;
+			.accordion-item {
+				&:after {
+					content: '';
+					display: block;
+					width: auto;
+					background: $white;
+					height: 1px;
+					margin: 0 20px;
+				}
+				.accordion-title {
+					border: none;
+					padding: 10px 20px;
+					font-size: 1em;
+					color: $white;
+					@include transition(all .3s);
+					&:before {
+						content: '';
+						width: 0;
+						height: 0;
+						border-style: solid;
+						border-width:  8.7px 5px 0 5px;
+						border-color: $white transparent transparent transparent;
+						margin-top: -3px;
+						right: 1.5em;
+						transform-origin: 50% 50%;
+						@include transition(all .3s);
+					}
+					&:focus {
+						background: none;
+					}
+					&:hover {
+						background: $black;
+						color: $blue;
+						&:before {
+							transform: rotate(180deg);
+							border-color: $blue transparent transparent transparent;
+						}
+					}
+				}
+				&:first-child {
+					&:before {
+						content: '';
+						display: block;
+						width: auto;
+						background: $white;
+						height: 1px;
+						margin: 0 20px;
+					}
+				}
+				&:last-child {
+					margin-bottom: 20px;
+					@include transition(all .3s);
+				}
+				&:last-child.is-active {
+					margin-bottom: 0;
+				}
+				.accordion-content {
+					background: $blue;
+					border: none;
+					height: auto;
+					max-height: 250px;
+					overflow: scroll;
+					a {
+						display: block;
+						color: $black;
+						@include transition(all .3s);
+						&:hover {
+							color: $white;
+						}
+					}
+					a.tag-filter {
+						color: $white;
+					}
+				}
+			}
+			.accordion-item.is-active {
+				&:after {
+					background: none;
+				}
+			}
+			.is-active > .accordion-title {
+				color: $blue;
+				&:before {
+					transform: rotate(180deg);
+					border-color: $blue transparent transparent transparent;
+				}
+			}
+			.category-all {
+				.accordion-title {
+					&:before {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	.works-map-wrapper {
+		padding: 85px 20px 20px 245px;
+		overflow: hidden;
+		.works-map {
+			
+		}
+		.work-block {
+			width: 270px;
+			height: 280px;
+			max-height: 280px;
+			display: inline-block;
+			margin: 10px;
+			vertical-align: top;
+			.work-image {
+				img {
+					width: 100%;
+					height: 155px;
+					overflow: hidden;
+				}
+			}
+			.work-des {
+				background: $yellow;
+				height: calc(100% - 155px);
+				padding: 10px 16px;
+				p {
+					margin-bottom: 5px;
+					font-size: 1.125em;
+					line-height: 1;
+				}
+				.work-title {
+					font-size: 1.313em;
+					line-height: 1.3;
+					margin-bottom: 5px;
+					color: $black;
+					display: inline-block;
+					@include transition(all .3s);
+					&:hover {
+						color: $blue;
+					}
+				}
+				.work-tags {
+					a {
+						font-size: 0.875em;
+						display: inline-block;
+						width: 65px;
+						vertical-align: top;
+						@include radius(1em);
+						border: 1px solid $blue;
+						text-align: center;
+						margin-right: 10px;
+						line-height: 1.3;
+						color: $black;
+						@include transition(all .3s);
+						&:hover {
+							color: $white;
+							background: $blue;
+						}
+					}
+				}
+			}
+		}
+	}
+	.preview-box {
+		background: $white;
+		border: 1px solid $blue;
+		position: fixed;
+		bottom: 7%;
+		left: 40px;
+		.inner-preview-box {
+			border: 1px solid red;
+		}
+	}
+}

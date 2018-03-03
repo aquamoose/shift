@@ -1,0 +1,46 @@
+extend layouts/index-layout.pug
+
+block script
+
+block main-content
+	.content.barba-container.content-loading(data-namespace='works')
+		include components/mobile-header.pug
+		.works-content
+			section.works-map-wrapper
+				.works-map
+					.preview-wrapper
+						- var work = [{image: 'images/work1.png', serial: '#1 / SHIFT work', title: 'Barry Chen X MJ116 Taichung Concert', tag1: '#2018', tag2: '#SHIFT', tag3: '#LeoSa'},{image: 'images/work2.png', serial: '#2 / SHIFT work', title: 'Rise from Music', tag1: '#2018', tag2: '#SHIFT', tag3: '#LeoSa'},{image: 'images/work3.png', serial: '#3 / Cooperations work', title: 'Adidas Prophere Series', tag1: '#2018', tag2: '#COOP', tag3: '#BlueDesign'},{image: 'images/work4.png', serial: '#4 / Cooperations work', title: 'Human Zoo', tag1: '#2018', tag2: '#COOP', tag3: '#ChiaHao'},{image: 'images/work5.png', serial: '#4 / SHIFT work', title: 'Cloud Nine Music Video', tag1: '#2018', tag2: '#SHIFT', tag3: '#ChiaHao'},{image: 'images/work1.png', serial: '#6 / SHIFT work', title: 'Barry Chen X MJ116 Taichung Concert', tag1: '#2018', tag2: '#SHIFT', tag3: '#LeoSa'},{image: 'images/work2.png', serial: '#7 / SHIFT work', title: 'Rise from Music', tag1: '#2018', tag2: '#SHIFT', tag3: '#LeoSa'},{image: 'images/work3.png', serial: '#8 / Cooperations work', title: 'Adidas Prophere Series', tag1: '#2018', tag2: '#COOP', tag3: '#BlueDesign'},{image: 'images/work4.png', serial: '#9 / Cooperations work', title: 'Human Zoo', tag1: '#2018', tag2: '#COOP', tag3: '#ChiaHao'},{image: 'images/work5.png', serial: '#10 / SHIFT work', title: 'Cloud Nine Music Video', tag1: '#2018', tag2: '#SHIFT', tag3: '#ChiaHao'}]
+							each block in work
+								.work-block
+									a(href='#').work-image
+										img(src=block.image)
+									.work-des
+										p=block.serial
+										a.work-title(href='#')=block.title
+										.work-tags
+											a(href=block.tag1)=block.tag1
+											a(href=block.tag2)=block.tag2
+											a(href=block.tag3)=block.tag3
+			.preview-box
+				.inner-preview-box
+			.works-nav
+				.works-category-filer
+					span.font-black #ChiaHao
+				.works-nav-img
+					img(src='images/works-person@2x.png')
+				ul.works-category.accordion(data-accordion, data-allow-all-closed="true")
+					- var list = [{title: 'ALL', tag: 'all'}, {title: 'SHIFT', tag: ''},{title: 'COOPERATIONS', tag: ''}]
+						each item in list
+							if(item.tag === 'all')
+								li.accordion-item.category-all
+									a(href="#").accordion-title=item.title
+							else
+								li.accordion-item(data-accordion-item)
+									a(href="#").accordion-title=item.title
+									.accordion-content(data-tab-content)
+										- var works = [{name: '#ChiaHao'}, {name: '#BlueDesign'},{name: '#LeoSa'},{name: '#ChiaHao'}, {name: '#BlueDesign'},{name: '#LeoSa'},{name: '#ChiaHao'}, {name: '#BlueDesign'},{name: '#ChiaHao'}]
+											each work in works
+												a(href='#', data-tag=work.name)=work.name
+			include components/social.pug
+			include components/chat-box.pug
+				

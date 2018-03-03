@@ -38,6 +38,22 @@ header {
 			}
 		}
 	}
+	.works-nav {
+		width: 100%;
+		max-width: 500px;
+		margin: 0 auto;
+		background: $black;
+		a {
+			color: $white;
+			@include transition(all .3s);
+			&:after {
+				border-color: $blue;
+			}
+			&:hover {
+				color: $blue;
+			}
+		}
+	}
 }
 .mobile-nav {
 	z-index: 999;

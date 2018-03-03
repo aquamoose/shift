@@ -3,7 +3,7 @@ header
 
 	nav.nav-menu
 		ul
-			- var list = [{name: 'About Us', direct: 'test.html', tag: 'about'}, { name : 'Works', direct : 'index.html', tag: 'work' }, { name : 'Members', direct : '#', tag: 'member' }, { name : 'Contact Us', direct : '#', tag: 'contact' }]
+			- var list = [{name: 'About Us', direct: 'index.html', tag: 'about'}, { name : 'Works', direct : 'works.html', tag: 'works' }, { name : 'Members', direct : '#', tag: 'member' }, { name : 'Contact Us', direct : '#', tag: 'contact' }]
 				each item in list
 					li: a(href=item.direct, data-name=item.tag).font-black=item.name
 			
