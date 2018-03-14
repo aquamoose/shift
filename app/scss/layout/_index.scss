@@ -148,31 +148,53 @@
 		}
 	}
 	.c-info {
-		width: 170px;
 		position: absolute;
 		right: 60px;
+		padding: 10px 0;
 		top: 50%;
     	transform: translateY(-50%);
+    	background: $blue;
+    	@include radius(10px);
+    	.c-bullet {
+    		width: 100%;
+    		position: relative;
+    		padding-bottom: 30px;
+    		.b-left, .b-right {
+    			width: 10px;
+    			height: 10px;
+    			@include radius(5px);
+    			background: $white;
+    			position: absolute;
+    		}
+    		.b-left {
+				left: 10px;
+    		}
+    		.b-right {
+				right: 10px;
+    		}
+    	}
     	@include for-phone-only {
 			display: none;
 		}
 		@include for-tablet-portrait-up {
+			width: 140px;
 			.c-info-number {
 				width: 100px;
 				height: 85px;
 				span {
-					font-size: 5.5em;
-					top: -10px;
+					font-size: 4em;
+					top: 10px;
 				}
 			}	
 		}
-		@include for-tablet-landscape-up {
+		@include for-mid-desktop-up {
+			width: 170px;
 			.c-info-number {
 				width: 140px;
 				height: 105px;
 				span {
-					font-size: 7em;
-					top: -13px;
+					font-size: 6em;
+					top: 0px;
 				}
 			}
 		}
@@ -195,19 +217,6 @@
     				right: 0;
     				bottom: 0;
     				line-height: 1;
-    			}
-    			&:after {
-    				content: '';
-    				display: block;
-    				width: 0;
-					height: 0;
-					position: absolute;
-					right: -20px;
-					top: 50%;
-					transform: translateY(-50%);
-					border-style: solid;
-					border-width: 0 7.5px 13.0px 7.5px;;
-					border-color: transparent transparent $blue transparent;
     			}
     		}
     	}

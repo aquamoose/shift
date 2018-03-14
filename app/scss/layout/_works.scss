@@ -1,9 +1,27 @@
 .works-content {
-	background: url(../images/workBG.png) top left repeat;
 	width: 100%;
 	min-height: 100%;
 	overflow: auto;
-	background-size: 10px 10px;
+	.work-nav-arrow {
+		position: absolute;
+		top: 20%;
+		left: 30px;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 20px 0 20px 20px;
+		border-color: transparent transparent transparent $black;
+		transform: rotate(0);
+		display: none;
+		@include transition(all .3s);
+		@include for-phone-only {
+			display: block;
+		}
+	}
+	.work-nav-arrow-open {
+		left: 210px;
+		transform: rotate(180deg);
+	}
 	.works-nav {
 		width: 175px;
 		height: auto;
@@ -11,8 +29,12 @@
 		background: $black;
 		position: fixed;
 		left: 40px;
-		top: 7%;
-		overflow: auto;
+		top: 20%;
+		// overflow: auto;
+		@include transition(all .3s);
+		.work-nav-arrow {
+
+		}
 		.works-category-filer {
 			height: 70px;
 			width: 100%;
@@ -52,7 +74,7 @@
 				.accordion-title {
 					border: none;
 					padding: 10px 20px;
-					font-size: 1em;
+					font-size: 0.875em;
 					color: $white;
 					@include transition(all .3s);
 					&:before {
@@ -135,20 +157,210 @@
 				}
 			}
 		}
+		@include for-tablet-landscape-up {
+			top: 7%;
+		}
+		@include for-phone-only {
+			top: 7%;
+			left: -180px;
+		}
+	}
+	.works-nav-open {
+		left: 30px;
 	}
 	.works-map-wrapper {
-		padding: 85px 20px 20px 245px;
-		overflow: hidden;
-		.works-map {
-			
+		overflow: auto;
+		@include for-phone-only {
+			padding: 20px;
+		}
+		.preview-wrapper {
+			background: url(../images/workBG.png) top left repeat;
+			background-size: 10px 10px;
+			padding: 85px 20px 20px 245px;
 		}
 		.work-block {
+			background: $yellow;
 			width: 270px;
 			height: 280px;
 			max-height: 280px;
 			display: inline-block;
 			margin: 10px;
 			vertical-align: top;
+			@include transition(all .3s);
+			.work-image {
+				img {
+					width: 100%;
+					height: 155px;
+					overflow: hidden;
+				}
+			}
+			.work-des {
+				height: calc(100% - 155px);
+				padding: 10px 16px;
+				p {
+					margin-bottom: 5px;
+					font-size: 1em;
+					line-height: 1;
+					color: $black;
+				}
+				.work-title {
+					font-size: 1.125em;
+					line-height: 1.3;
+					margin-bottom: 7px;
+					display: inline-block;
+					@include transition(all .3s);
+				}
+				.work-tags {
+					span {
+						font-size: 0.875em;
+						display: inline-block;
+						width: auto;
+						padding: 3px 5px;
+						vertical-align: top;
+						@include radius(1em);
+						border: 1px solid $blue;
+						text-align: center;
+						margin-right: 10px;
+						line-height: 1.3;
+						color: $black;
+						@include transition(all .3s);
+					}
+				}
+			}
+			&:hover {
+				background: $white;
+			}
+		}
+	}
+	.preview-box {
+		background: $black;
+		position: fixed;
+		width: 175px;
+		height: 200px;
+		bottom: 7%;
+		left: 40px;
+		border: 1px solid $black;
+		overflow: hidden;
+		display: none;
+		.inner-preview-box {
+			background: $white;
+		}
+	}
+	.map-more-right {
+		height: 50px;
+		width: 30px;
+		position: fixed;
+		right: 2%;
+		top: 50%;
+		transform:  translate(0,-50%) rotate(180deg);
+		background: url(../images/direction-arrow.svg) no-repeat;
+	}
+	.map-more-top {
+		height: 50px;
+		width: 30px;
+		position: fixed;
+		top: 65px;
+		left: 50%;
+		right: 0;
+		display: none;
+		transform: translate(-50%,0) rotate(90deg);
+		background: url(../images/direction-arrow.svg) no-repeat;
+		@include for-phone-only {
+			top: 2%;
+		}
+	}
+	.map-more-left {
+		height: 50px;
+		width: 30px;
+		position: fixed;
+		left: 230px;
+		top: 50%;
+		transform: translateY(-50%);
+		background: url(../images/direction-arrow.svg) no-repeat;
+		display: none;
+		@include for-phone-only {
+			left: 2%;
+		}
+	}
+	.map-more-down {
+		height: 50px;
+		width: 30px;
+		position: fixed;
+		bottom: 2%;
+		left: 50%;
+		transform: translate(-50%,0) rotate(270deg);
+		background: url(../images/direction-arrow.svg) no-repeat;
+	}
+}
+.single-work-box {
+	z-index: 99999;	
+	overflow-y: auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: none;
+	.single-work-close {
+		position: fixed;
+		right: 30px;
+		top: 30px;
+		width: 32px;
+		height: 32px;
+		opacity: 0.5;
+		z-index: 999;
+		@include transition(all .3s);
+		&:before, &:after {
+			position: absolute;
+			left: 15px;
+			content: ' ';
+			height: 33px;
+			width: 2px;
+			background-color: $white;
+		}
+		&:before {
+			transform: rotate(45deg);
+		}
+		&:after {
+			transform: rotate(-45deg);
+		}
+		&:hover {
+			opacity: 1;
+		}
+	}
+}
+.work-overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: $black;
+	background: rgba(44,40,36,.9);
+	filter: blur(5px);
+}
+.single-work-loader {
+	overflow: auto;
+	position: fixed;
+	top: 100%;
+	opacity: 0;
+	@include transition(all .3s);
+}
+.single-work-content {
+	padding: 6% 2% 2% 2%;
+	position: relative;
+	.single-work-card {
+		width: 270px;
+		height: 280px;
+		max-height: 280px;
+		display: inline-block;
+		margin: 10px;
+		vertical-align: top;
+		position: fixed;
+		right: 2%;
+		@include transition(all .3s);
+		.work-block {
+			height: 100%;
 			.work-image {
 				img {
 					width: 100%;
@@ -172,12 +384,9 @@
 					color: $black;
 					display: inline-block;
 					@include transition(all .3s);
-					&:hover {
-						color: $blue;
-					}
 				}
 				.work-tags {
-					a {
+					p {
 						font-size: 0.875em;
 						display: inline-block;
 						width: 65px;
@@ -189,23 +398,132 @@
 						line-height: 1.3;
 						color: $black;
 						@include transition(all .3s);
-						&:hover {
-							color: $white;
-							background: $blue;
-						}
 					}
 				}
 			}
 		}
 	}
-	.preview-box {
-		background: $white;
-		border: 1px solid $blue;
-		position: fixed;
-		bottom: 7%;
-		left: 40px;
-		.inner-preview-box {
-			border: 1px solid red;
+	.single-work {
+		width: 100%;
+		max-width: calc(100% - 300px);
+		height: auto;
+		background: white;
+		.single-work-text-box {
+			padding: 25px 25px 0 25px;
+			.single-work-tags {
+				.tag-company {
+					font-size: 1.125em;
+					color: $text;
+					float: left;
+					margin-left: 5px;
+				}
+				.tag-hashtags {
+					float: right;
+					p {
+						font-size: 0.875em;
+						display: inline-block;
+						width: 65px;
+						vertical-align: top;
+						@include radius(1em);
+						border: 1px solid $blue;
+						text-align: center;
+						margin-right: 10px;
+						line-height: 1.3;
+						color: $black;
+						@include transition(all .3s);
+					}
+				}
+			}
+			.single-work-title, .single-work-number {
+				p {
+					font-size: 4em;
+				}
+			}
+			.single-work-title {
+				float: left;
+				max-width: 600px;
+			}
+			.single-work-number {
+				float: right;
+			}
+			.single-work-text {
+				margin-top: 35px;
+				.paragraph-title {
+					margin-bottom: 0;
+					span {
+						padding-left: 10px;
+					}
+				}
+				.p-break {
+					margin: 30px 0 10px 0;		
+				}
+			}
+		}
+		.paragraph-image {
+			margin: 20px 0 0 0;
 		}
 	}
+	.related-works {
+		.related-work-card {
+			width: 270px;
+			height: 280px;
+			max-height: 280px;
+			display: inline-block;
+			margin: 40px 20px 20px 0;
+			vertical-align: top;
+			@include transition(all .3s);
+			.work-block {
+				height: 100%;
+				.work-image {
+					img {
+						width: 100%;
+						height: 155px;
+						overflow: hidden;
+					}
+				}
+				.work-des {
+					background: $yellow;
+					height: calc(100% - 155px);
+					padding: 10px 16px;
+					p {
+						margin-bottom: 5px;
+						font-size: 1.125em;
+						line-height: 1;
+						color: $text;
+					}
+					.work-title {
+						font-size: 1.313em;
+						line-height: 1.3;
+						margin-bottom: 5px;
+						color: $black;
+						display: inline-block;
+						@include transition(all .3s);
+					}
+					.work-tags {
+						p {
+							font-size: 0.875em;
+							display: inline-block;
+							width: 65px;
+							vertical-align: top;
+							@include radius(1em);
+							border: 1px solid $blue;
+							text-align: center;
+							margin-right: 10px;
+							line-height: 1.3;
+							color: $black;
+							@include transition(all .3s);
+						}
+					}
+				}
+			}
+			&:hover {
+				margin-top: 30px;
+			}
+		}
+	}
+}
+.single-work-loader-up {
+	top: 0;
+	position: relative;
+	opacity: 1;
 }
