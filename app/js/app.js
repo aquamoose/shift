@@ -175,6 +175,7 @@ function initGlobal() {
 	});
 	$(".chat-box").click(function(e){
 		e.stopPropagation();
+		$(this).removeClass('chat-box-pulse');
 		$(".chat-box img").addClass('chat-img-open');
 		queue(function(){
 			return $(".chat-box").stop().animate({width: '320'});
@@ -188,6 +189,8 @@ function initGlobal() {
 			return $(".chat-box").stop().animate({height: '60'});
 		}, function(){
 			return $(".chat-box").stop().animate({width: '60'});
+		}, function(){
+			$(".chat-box").addClass('chat-box-pulse');
 		});
 	});
 }

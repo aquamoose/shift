@@ -1488,3 +1488,17 @@ button:focus {
   @media (max-width: 599px) {
     .chat-box img {
       opacity: 1; } }
+
+.chat-box-pulse {
+  animation: pulse 1s infinite; }
+
+@-webkit-keyframes pulse {
+  0% {
+    width: 60px;
+    height: 60px; }
+  50% {
+    width: 63px;
+    height: 63px; }
+  100% {
+    width: 60px;
+    height: 60px; } }
