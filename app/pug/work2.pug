@@ -2,7 +2,7 @@ extend layouts/single-work-layout.pug
 
 block main-content
 	.single-work-content
-		.single-work-card
+		.single-work-card.single-work-card-hide
 			.work-block
 				.work-image
 					img(src='images/work2.png')
@@ -13,7 +13,7 @@ block main-content
 						p.work-year #2018
 						p.work-company #SHIFT
 						p.work-profile #LeoSa
-		.single-work
+		.single-work.single-work-hide
 			.single-work-main-img
 				img(src='images/work2.png')
 			.single-work-text-box
@@ -25,10 +25,10 @@ block main-content
 						p.work-company #SHIFT
 						p.work-profile #LeoSa
 					.clearfix
-				.single-work-title 
-					p Rise from Music
 				.single-work-number
 					p 13
+				.single-work-title 
+					p Rise from Music
 				.clearfix
 				.divider.bg-black
 				.single-work-text

@@ -9,11 +9,23 @@
 		width: 0;
 		height: 0;
 		border-style: solid;
-		border-width: 20px 0 20px 20px;
-		border-color: transparent transparent transparent $black;
+		border-width: 24px 0 24px 24px;
+		border-color: transparent transparent transparent $blue;
 		transform: rotate(0);
 		display: none;
 		@include transition(all .3s);
+		&:before {
+			display: block;
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: -20px;
+			left: -22px;
+			border-style: solid;
+			border-width: 20px 0 20px 20px;
+			border-color: transparent transparent transparent $black;
+		}
 		@include for-phone-only {
 			display: block;
 		}
@@ -168,15 +180,18 @@
 	.works-nav-open {
 		left: 30px;
 	}
+	.work-nav-hide {
+		left: - 300px;
+	}
 	.works-map-wrapper {
 		overflow: auto;
-		@include for-phone-only {
-			padding: 20px;
-		}
 		.preview-wrapper {
 			background: url(../images/workBG.png) top left repeat;
 			background-size: 10px 10px;
 			padding: 85px 20px 20px 245px;
+			@include for-phone-only {
+				padding: 0;
+			}
 		}
 		.work-block {
 			background: $yellow;
@@ -230,6 +245,9 @@
 			&:hover {
 				background: $white;
 			}
+		}
+		.work-block-hide {
+			margin-top: 100%;
 		}
 	}
 	.preview-box {
@@ -350,10 +368,7 @@
 	padding: 6% 2% 2% 2%;
 	position: relative;
 	.single-work-card {
-		width: 270px;
-		height: 280px;
-		max-height: 280px;
-		display: inline-block;
+		display: none;
 		margin: 10px;
 		vertical-align: top;
 		position: fixed;
@@ -402,10 +417,19 @@
 				}
 			}
 		}
+		@include for-tablet-landscape-up {
+			width: 270px;
+			height: 280px;
+			max-height: 280px;
+			display: inline-block;
+		}
+	}
+	.single-work-card-hide {
+		margin-top: 100%;
 	}
 	.single-work {
 		width: 100%;
-		max-width: calc(100% - 300px);
+		max-width: 100%;
 		height: auto;
 		background: white;
 		.single-work-text-box {
@@ -437,6 +461,10 @@
 			.single-work-title, .single-work-number {
 				p {
 					font-size: 4em;
+					font-weight: bold;
+					@include for-phone-only {
+						line-height: 1;
+					}
 				}
 			}
 			.single-work-title {
@@ -445,6 +473,9 @@
 			}
 			.single-work-number {
 				float: right;
+				@include for-phone-only {
+					float: none;
+				}
 			}
 			.single-work-text {
 				margin-top: 35px;
@@ -462,6 +493,12 @@
 		.paragraph-image {
 			margin: 20px 0 0 0;
 		}
+		@include for-tablet-landscape-up {
+			max-width: calc(100% - 300px);
+		}
+	}
+	.single-work-hide {
+		margin-top: 100%;
 	}
 	.related-works {
 		.related-work-card {

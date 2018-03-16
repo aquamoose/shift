@@ -789,14 +789,25 @@ header {
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 20px 0 20px 20px;
-    border-color: transparent transparent transparent #2c2824;
+    border-width: 24px 0 24px 24px;
+    border-color: transparent transparent transparent #4b7cb7;
     transform: rotate(0);
     display: none;
     -moz-transition: all 0.3s;
     -o-transition: all 0.3s;
     -webkit-transition: all 0.3s;
     transition: all 0.3s; }
+    .works-content .work-nav-arrow:before {
+      display: block;
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      top: -20px;
+      left: -22px;
+      border-style: solid;
+      border-width: 20px 0 20px 20px;
+      border-color: transparent transparent transparent #2c2824; }
     @media (max-width: 599px) {
       .works-content .work-nav-arrow {
         display: block; } }
@@ -929,15 +940,17 @@ header {
         left: -180px; } }
   .works-content .works-nav-open {
     left: 30px; }
+  .works-content .work-nav-hide {
+    left: -300px; }
   .works-content .works-map-wrapper {
     overflow: auto; }
-    @media (max-width: 599px) {
-      .works-content .works-map-wrapper {
-        padding: 20px; } }
     .works-content .works-map-wrapper .preview-wrapper {
       background: url(../images/workBG.png) top left repeat;
       background-size: 10px 10px;
       padding: 85px 20px 20px 245px; }
+      @media (max-width: 599px) {
+        .works-content .works-map-wrapper .preview-wrapper {
+          padding: 0; } }
     .works-content .works-map-wrapper .work-block {
       background: #f3dc11;
       width: 270px;
@@ -992,6 +1005,8 @@ header {
           transition: all 0.3s; }
       .works-content .works-map-wrapper .work-block:hover {
         background: #fff2cc; }
+    .works-content .works-map-wrapper .work-block-hide {
+      margin-top: 100%; }
   .works-content .preview-box {
     background: #2c2824;
     position: fixed;
@@ -1105,10 +1120,7 @@ header {
   padding: 6% 2% 2% 2%;
   position: relative; }
   .single-work-content .single-work-card {
-    width: 270px;
-    height: 280px;
-    max-height: 280px;
-    display: inline-block;
+    display: none;
     margin: 10px;
     vertical-align: top;
     position: fixed;
@@ -1159,9 +1171,17 @@ header {
           -o-transition: all 0.3s;
           -webkit-transition: all 0.3s;
           transition: all 0.3s; }
+    @media (min-width: 900px) {
+      .single-work-content .single-work-card {
+        width: 270px;
+        height: 280px;
+        max-height: 280px;
+        display: inline-block; } }
+  .single-work-content .single-work-card-hide {
+    margin-top: 100%; }
   .single-work-content .single-work {
     width: 100%;
-    max-width: calc(100% - 300px);
+    max-width: 100%;
     height: auto;
     background: white; }
     .single-work-content .single-work .single-work-text-box {
@@ -1192,12 +1212,19 @@ header {
           -webkit-transition: all 0.3s;
           transition: all 0.3s; }
       .single-work-content .single-work .single-work-text-box .single-work-title p, .single-work-content .single-work .single-work-text-box .single-work-number p {
-        font-size: 4em; }
+        font-size: 4em;
+        font-weight: bold; }
+        @media (max-width: 599px) {
+          .single-work-content .single-work .single-work-text-box .single-work-title p, .single-work-content .single-work .single-work-text-box .single-work-number p {
+            line-height: 1; } }
       .single-work-content .single-work .single-work-text-box .single-work-title {
         float: left;
         max-width: 600px; }
       .single-work-content .single-work .single-work-text-box .single-work-number {
         float: right; }
+        @media (max-width: 599px) {
+          .single-work-content .single-work .single-work-text-box .single-work-number {
+            float: none; } }
       .single-work-content .single-work .single-work-text-box .single-work-text {
         margin-top: 35px; }
         .single-work-content .single-work .single-work-text-box .single-work-text .paragraph-title {
@@ -1208,6 +1235,11 @@ header {
           margin: 30px 0 10px 0; }
     .single-work-content .single-work .paragraph-image {
       margin: 20px 0 0 0; }
+    @media (min-width: 900px) {
+      .single-work-content .single-work {
+        max-width: calc(100% - 300px); } }
+  .single-work-content .single-work-hide {
+    margin-top: 100%; }
   .single-work-content .related-works .related-work-card {
     width: 270px;
     height: 280px;
