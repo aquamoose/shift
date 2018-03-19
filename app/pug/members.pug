@@ -1,0 +1,45 @@
+extend layouts/index-layout.pug
+
+block script
+
+block main-content
+	.content.barba-container.content-loading(data-namespace='members')
+		include components/mobile-header.pug
+		.member-content(data-sticky-container)
+			section.members(data-sticky data-margin-top="0")
+				.member-head
+					.member-title
+						p.font-white SHIFT & Cooperations
+					.member-info
+						.member-info-block
+							p.font-blue Average Age
+							span.font-white 25
+						.member-info-block
+							p.font-blue Cooperations
+							span.font-white 22
+					.clearfix
+				.member-thumbnail-wrap.grid-x.grid-margin-x
+					- var members = [{image: 'images/haimi1.png', bimage: 'images/haimi2.png', title: 'Producer', name: 'HaimiTu', role: 'Founder'},{image: 'images/haimi1.png', bimage: 'images/haimi2.png', title: 'Director', name: 'LeoSa', role: 'Founder'},{image: 'images/haimi1.png', bimage: 'images/haimi2.png', title: 'Visual Designer', name: 'Liang', role: 'Founder'},{image: 'images/haimi1.png', bimage: 'images/haimi2.png', title: 'Producer', name: 'SamJi', role: 'Joined 2015.1'},{image: 'images/haimi1.png', bimage: 'images/haimi2.png', title: 'Visual Designer', name: 'LiangJi', role: 'Joined 2015.1'},{image: 'images/haimi1.png', bimage: 'images/haimi2.png', title: 'Producer', name: 'HaimiTu', role: 'Founder'},{image: 'images/haimi1.png', bimage: 'images/haimi2.png', title: 'Director', name: 'LeoSa', role: 'Founder'},{image: 'images/haimi1.png', bimage: 'images/haimi2.png', title: 'Visual Designer', name: 'Liang', role: 'Founder'},{image: 'images/haimi1.png', bimage: 'images/haimi2.png', title: 'Producer', name: 'SamJi', role: 'Joined 2015.1'},{image: 'images/haimi1.png', bimage: 'images/haimi2.png', title: 'Visual Designer', name: 'LiangJi', role: 'Joined 2015.1'}]
+							each member in members
+								.member-thumbnail-block.cell.small-1.large-4
+									.member-card
+										.member-card-front
+											.front-left
+												p.fcard-title=member.title
+												p.fcard-name=member.name
+												.front-bottom
+													.divider.bg-white
+													p.fcard-role=member.role
+											.front-right
+												img(src=member.image)
+										.member-card-back
+											.back-left
+												img(src=member.bimage)
+											.back-right
+												p.bcard-title=member.title
+												p.bcard-name=member.name
+												.back-bottom
+													.divider.bg-white
+													p.bcard-role=member.role
+			include components/social.pug
+			include components/chat-box.pug

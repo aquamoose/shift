@@ -24,12 +24,12 @@ var Works = Barba.BaseView.extend({
 		$('.mobile-nav').removeClass('mobile-nav-open', 300);
     }
 });
-var Test = Barba.BaseView.extend({
-    namespace: "about",
+var Members = Barba.BaseView.extend({
+    namespace: "members",
     onEnter: function () {},
     onEnterCompleted: function () {
     	preloaderTimeline();
-        initAbout();
+        initMembers();
     },
     onLeave: function () {},
     onLeaveCompleted: function () {
@@ -68,11 +68,10 @@ function preloaderTimeline() {
 		});
 	});
 }
-
 $(function () {
 	Home.init();
 	Works.init();
-
+	Members.init();
 	Barba.Pjax.init();
     Barba.Prefetch.init();
 
@@ -167,6 +166,8 @@ function initGlobal() {
 		}
 		if(contentAttr == 'works') {
 			$(".nav-menu ul").addClass('works-nav');
+		} else if(contentAttr == 'members') {
+			$(".nav-menu ul").addClass('works-nav');
 		} else {
 			$(".nav-menu ul").removeClass('works-nav');
 		}
@@ -214,17 +215,15 @@ function initWorks() {
 			return $(this).offset().top == top;
 		};
 	}
-	$(window).load(function(){
-		setTimeout(function(){
-			$('.works-nav').removeClass('work-nav-hide');
-		}, 1500);
-		setTimeout(function(){
-			$('.work-block').removeClass('work-block-hide');
-		}, 1700);
-	});
+	setTimeout(function(){
+		$('.works-nav').removeClass('work-nav-hide');
+	}, 1500);
+	setTimeout(function(){
+		$('.work-block').removeClass('work-block-hide');
+	}, 1700);
 	var el = $('.work-block:first');
 	var elWidth = el.outerWidth(true);
-	var mapSize = (Math.round(Math.sqrt($('.work-block').length)) + 1);
+	var mapSize = (Math.round(Math.sqrt($('.work-block').length)) + 2);
 	var wHeight = $(window).innerHeight();
 	var outerBorder = $('.content').outerHeight() - $('.content').height();
 	var innerBorder = $('.works-map-wrapper').outerHeight() - $('.works-map-wrapper').height();
@@ -232,6 +231,7 @@ function initWorks() {
 	var windowRatio = $(window).innerWidth() - 245;
 	var previewInnerW = ($(window).innerWidth() - 245) / $('.preview-wrapper').innerWidth();
 	$('.works-map').width((elWidth * mapSize) + 100);
+	
 	$('.works-content').kinetic();
 	$('.works-map').mouseout(function(){
 		$('.works-map-wrapper').kinetic('detach');
@@ -393,8 +393,9 @@ function initWorks() {
 	// 	console.log()
 	// }, 100);	
 }
-
-
+function initMembers() {
+	initGlobal();
+}
 
 
 

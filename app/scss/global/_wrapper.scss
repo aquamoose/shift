@@ -34,6 +34,9 @@ body {
 	height: 100%;
 	padding: 1.2%;
 	min-height: 100%;
+	@include for-mid-desktop-up {
+		padding: 10px;
+	}
 }
 .content-loading {
 	// display: none;

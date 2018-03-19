@@ -46,6 +46,9 @@
 			opacity: 1;
 		}
 	}
+	@include for-mid-desktop-up {
+		margin: 10px;
+	}
 }
 .chat-box-pulse {
 	animation: pulse 1s infinite;
