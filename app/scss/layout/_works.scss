@@ -432,6 +432,12 @@
 		max-width: 100%;
 		height: auto;
 		background: white;
+		.single-work-main-img {
+			width: 100%;
+			img {
+				width: 100%;
+			}
+		}
 		.single-work-text-box {
 			padding: 25px 25px 0 25px;
 			.single-work-tags {

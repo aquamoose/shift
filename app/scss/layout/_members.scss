@@ -1,22 +1,32 @@
 .member-content {
 	background: url(../images/workBG.png) top left repeat;
 	background-size: 10px 10px;
+	position: relative;
 	width: 100%;
-	height: 100%;
+	height: auto;
 	.members {
-		width: 100%;
-		height: auto;
-		padding: 65px;
 		background: url(../images/membersBG.png) center 30px no-repeat;
 		background-size: 100%;
+		width: 100%;
+		max-width: 1440px;
+		margin: 0 auto;
+		height: auto;
+		padding: 65px 20px 20px 20px;
+		@include for-phone-only {
+			padding-left: 0;
+			padding-right: 0;
+		}
+		@include for-mid-desktop-up {
+			padding: 65px 65px 20px 65px;
+		}
 		.member-head {
-			margin-top: 100px;
+			margin-top: 300px;
 			@include transition(all .3s);
+			@include for-phone-only {
+				width: 100%;
+			}
 			@include for-mid-desktop-up {
 				margin-top: 200px;
-			}
-			@include for-big-desktop-up {
-				margin-top: 300px;
 			}
 			.member-title {
 				padding: 30px;
@@ -24,6 +34,11 @@
 				height: auto;
 				background-color: $black;
 				float: left;
+				margin-left: 0;
+				@include transition(all .3s);
+				@include for-phone-only {
+					width: 100%;
+				}
 				p {
 					font-weight: bold;
 					font-size: 3.125em;
@@ -31,8 +46,17 @@
 					margin-bottom: 0;
 				}
 			}
+			.member-title-hide {
+				margin-left: -100%;
+			}
 			.member-info {
 				float: right;
+				display: none;
+				margin-right: 0;
+				@include transition(all .3s);
+				@include for-tablet-landscape-up {
+					display: block;
+				}
 				.member-info-block {
 					width: 140px;
 					height: auto;
@@ -54,9 +78,27 @@
 					}
 				}
 			}
+			.member-info-hide {
+				margin-right: -100%;
+			}
 		}
 		.member-thumbnail-wrap {
 			margin-top: 75px;
+			max-width: 1440px;
+			justify-content: center;
+			@include transition(all .3s);
+			&:after {
+				content: '';
+				display: block;
+			}
+			@include for-desktop-up {
+				justify-content: space-between;
+				&:after {
+					content: '';
+					display: none;
+				}
+			}
+			
 			.member-thumbnail-block {
 				width: 360px;
 				height: 255px;
@@ -64,12 +106,6 @@
 				perspective: 1200px;
 				cursor: pointer;
 				margin-bottom: 20px;
-				@include for-desktop-up {
-					width: 350px;
-				}
-				@include for-mid-desktop-up {
-					width: 360px;
-				}
 				img {
 					height: 255px;			
 				}
@@ -174,13 +210,94 @@
 						width: 50%;
 					}
 				}
-				&:hover .member-card {
-					transform: rotateY(540deg);	
-					.member-card-front p, .member-card-front .divider{
-						opacity: 0;
-						@include transition(all .3s);
+				// &:hover .member-card {
+				// 	transform: rotateY(180deg);	
+				// 	.member-card-front p, .member-card-front .divider{
+				// 		opacity: 0;
+				// 		@include transition(all .3s);
+				// 	}		
+				// }
+				@include for-phone-only {
+					&:nth-child(odd) {
+						.member-card {
+							transform: rotateY(180deg);
+							.member-card-front p, .member-card-front .divider{
+								opacity: 0;
+								@include transition(all .3s);
+							}	
+						}
 					}		
 				}
+				@include for-tablet-portrait-up {
+					&:hover .member-card {
+						transform: rotateY(180deg);	
+						.member-card-front p, .member-card-front .divider{
+							opacity: 0;
+							@include transition(all .3s);
+						}		
+					}
+				}
+				@include for-desktop-up {
+					width: 350px;
+				}
+				@include for-mid-desktop-up {
+					width: 360px;
+				}
+			}
+		}
+		.member-thumbnail-hide {
+			margin-top: 100%;
+		}
+	}
+	.join-us {
+		width: 100%;
+		height: auto;
+		background: $black;
+		margin-bottom: 20px;
+		@include for-phone-only {
+			margin-bottom: 50px;
+		}
+		.join-title {
+			padding: 25px;
+			background: $blue;
+			font-size: 3.125em;
+			line-height: 1;
+			text-transform: uppercase;
+			font-weight: bold;
+			float: left;
+		}
+		.join-info {
+			float: right;
+			background: $white;
+			width: 100%;
+			padding: 20px 15px;
+			margin-bottom: 75px;
+			margin-top: 50px;
+			@include for-phone-only {
+				margin-bottom: 0;
+			}
+			@include for-small-desktop-up {
+				margin-right: 50px;
+				margin-top: 0;
+				width: 376px;
+			}
+			p {
+				text-align: center;
+				font-size: 1.25em;
+				margin-bottom: 0;
+			}
+			a {
+				text-align: center;
+				font-size: 1.5em;
+				display: block;
+				color: $black;
+				@include transition(color .3s);
+				&:hover {
+					color: $blue;
+				}
+			}
+			.divider {
+				margin: 5px;
 			}
 		}
 	}

@@ -1,0 +1,16 @@
+extend layouts/index-layout.pug
+
+block script
+
+block main-content
+	.content.barba-container.content-loading(data-namespace='contact')
+		include components/mobile-header.pug
+		.about-content
+			.creative-production-block.dark-block
+				img(src="images/about-adv1.png")
+				.creative-production-info
+					span Advantage 1
+					p Creative & Production
+				.clearfix
+			include components/footer.pug
+			include components/social.pug

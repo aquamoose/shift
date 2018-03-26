@@ -2,7 +2,6 @@ var Home = Barba.BaseView.extend({
     namespace: "home",
     onEnter: function () {},
     onEnterCompleted: function () {
-    	preloaderTimeline();
         initHome();
     },
     onLeave: function () {},
@@ -15,7 +14,6 @@ var Works = Barba.BaseView.extend({
     namespace: "works",
     onEnter: function () {},
     onEnterCompleted: function () {
-    	preloaderTimeline();
         initWorks();
     },
     onLeave: function () {},
@@ -28,8 +26,19 @@ var Members = Barba.BaseView.extend({
     namespace: "members",
     onEnter: function () {},
     onEnterCompleted: function () {
-    	preloaderTimeline();
         initMembers();
+    },
+    onLeave: function () {},
+    onLeaveCompleted: function () {
+    	$('.menu-button').removeClass('close');
+		$('.mobile-nav').removeClass('mobile-nav-open', 300);
+    }
+});
+var Contact = Barba.BaseView.extend({
+    namespace: "contact",
+    onEnter: function () {},
+    onEnterCompleted: function () {
+        initContact();
     },
     onLeave: function () {},
     onLeaveCompleted: function () {
@@ -72,9 +81,10 @@ $(function () {
 	Home.init();
 	Works.init();
 	Members.init();
+	Contact.init();
+	preloaderTimeline();
 	Barba.Pjax.init();
     Barba.Prefetch.init();
-
     var FadeTransition = Barba.BaseTransition.extend({
 	  start: function() {
 	    Promise
@@ -127,7 +137,8 @@ $(function () {
 		  easing: 'easeInQuart',
 		  duration: 1000,
 		  complete: function(){
-		  	_this.done()
+		  	$('.content').removeClass('content-loading');
+		  	_this.done();
 		  }
 		});
 
@@ -167,6 +178,8 @@ function initGlobal() {
 		if(contentAttr == 'works') {
 			$(".nav-menu ul").addClass('works-nav');
 		} else if(contentAttr == 'members') {
+			$(".nav-menu ul").addClass('works-nav');
+		} else if(contentAttr == 'contact') {
 			$(".nav-menu ul").addClass('works-nav');
 		} else {
 			$(".nav-menu ul").removeClass('works-nav');
@@ -217,10 +230,10 @@ function initWorks() {
 	}
 	setTimeout(function(){
 		$('.works-nav').removeClass('work-nav-hide');
-	}, 1500);
+	}, 1000);
 	setTimeout(function(){
 		$('.work-block').removeClass('work-block-hide');
-	}, 1700);
+	}, 1200);
 	var el = $('.work-block:first');
 	var elWidth = el.outerWidth(true);
 	var mapSize = (Math.round(Math.sqrt($('.work-block').length)) + 2);
@@ -395,11 +408,23 @@ function initWorks() {
 }
 function initMembers() {
 	initGlobal();
+	if($('.content').not('.content-loading')) {
+		setTimeout(function(){
+			$('.member-title').removeClass('member-title-hide');
+		}, 1000);
+		setTimeout(function(){
+			$('.member-info').removeClass('member-info-hide');
+		}, 1200);
+		setTimeout(function(){
+			$('.member-thumbnail-wrap').removeClass('member-thumbnail-hide')
+		}, 1400);
+	};
+	
 }
-
-
-
-
+function initContact() {
+	initGlobal();
+	
+}
 
 
 

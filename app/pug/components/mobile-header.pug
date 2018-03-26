@@ -3,7 +3,7 @@ nav.mobile-nav
 		span.menu-lines
 	.mobile-menu
 		ul
-			- var list = [{name: 'About Us', direct: 'index.html'}, { name : 'Works', direct : 'works.html' }, { name : 'Members', direct : 'members.html' }, { name : 'Contact Us', direct : '#' }]
+			- var list = [{name: 'About Us', direct: 'about.html'}, { name : 'Works', direct : 'works.html' }, { name : 'Members', direct : 'members.html' }, { name : 'Contact Us', direct : 'contact.html' }]
 				each item in list
 					li: a(href=item.direct, target=item.target).font-white=item.name
 			.divider.bg-blue

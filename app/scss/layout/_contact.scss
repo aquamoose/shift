@@ -1,0 +1,184 @@
+.contact-content {
+	width: 100%;
+	height: auto;
+	.contact-header-wrap {
+		padding-top: 290px;
+		background: $white center no-repeat;
+		background-image: url(../images/membersBG.png);
+		background-size: 50%;
+		.contact-header {
+			margin-left: 20%;
+			@include for-phone-only {
+				margin-left: 0;
+			}
+			span {
+				display: inline-block;
+				font-size: 3.125em;
+				font-weight: bold;
+				padding: 20px;
+				margin-bottom: 0;
+				background: $black;
+				line-height: 1;
+				text-transform: uppercase;
+			}
+		}
+	}
+	.contact-info-wrap {
+		padding-top: 40px;
+		.contact-box {
+			text-align: center;
+			div {
+				width: 100%;
+				margin-bottom: 30px;
+				@include for-phone-only {
+					margin-bottom: 0;
+				}
+				@include for-small-desktop-up {
+					margin-right: auto;
+					margin-left: auto;
+					width: 400px;
+				}
+			}
+			.join-info {
+				margin-top: 50px;
+				p {
+					text-align: center;
+					font-size: 1.25em;
+					margin-bottom: 0;
+					color: $white;
+				}
+				a {
+					text-align: center;
+					font-size: 1.5em;
+					display: block;
+					color: $white;
+					@include transition(color .3s);
+					&:hover {
+						color: $blue;
+					}
+				}
+				.divider {
+					margin: 5px 0;
+					padding: 0;
+					width: 100%;
+				}
+			}
+			.contact-address {
+				p {
+					color: $white;
+				}
+			}
+			.contact-social {
+				a {
+					width: 30px;
+					height: 30px;
+					display: inline-block;
+					margin-right: 30px;
+					vertical-align: top;
+					@include transition(all .3s);
+					svg {
+						fill: $white;
+						@include transition(all .3s);
+					}
+					&:hover {
+						svg {
+							fill: $blue;
+						}
+					}
+				}
+				.f-social-youtube {
+					width: 34px;
+					padding-top: 2px;
+				}
+			}
+		}
+	}
+	.contact-form-wrap {
+		padding-top: 40px;
+		border-left: none;
+		margin-bottom: 50px;
+		@include for-mid-foundation-up {
+			border-left: 1px solid $white;
+			margin-bottom: 0;
+		}
+		.contact-form {
+			text-align: center;
+			input, textarea {
+				width: 350px;
+				margin: 0 auto;
+				height: 35px;
+				margin-bottom: 10px;
+				padding: 0 1em;
+				border: none;
+				outline: none;
+				@include radius(5px);
+			}
+			input {
+				height: 35px;
+			}
+			textarea {
+				height: 130px;
+				padding: 10px 1em;
+			}
+			button {
+				background: $blue;
+				width: 120px;
+				height: 35px;
+				text-align: center;
+				color: $white;
+				font-weight: bold;
+				margin-top: 10px;
+				@include radius(5px);
+				@include transition(all .3s);
+				&:hover {
+					background: $white;
+					color: $blue;
+				}
+			}
+		}
+	}
+	.contact-service-process {
+		.service-process-head {
+			width: 100%;
+			background: $black;
+			padding-top: 20px;
+			text-align: center;
+			@include for-phone-only {
+				margin-bottom: -70px;
+			}
+			span {
+				padding: 30px 30px 0 30px;
+				background: $white;
+				font-size: 3.125em;
+				font-weight: bold;
+				line-height: 1;
+				display: inline-block;
+				@include for-phone-only {
+					width: 300px;
+					padding: 30px 15px 0 15px;
+				}
+			}
+		}
+		.service-process-block {
+			padding: 9%;
+			background: $white;
+			@include for-phone-only {
+				padding-top: 100px;
+			}
+			.blue {
+				background: $blue;
+			}
+			.black {
+				background: $black;
+			}
+			.service-process {
+				text-align: center;
+				padding: 0.9375em;
+				p {
+					font-size: 1.875em;
+					color: $white;
+				}
+			}
+		}
+	}
+}

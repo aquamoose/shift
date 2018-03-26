@@ -5,12 +5,12 @@ block script
 block main-content
 	.content.barba-container.content-loading(data-namespace='members')
 		include components/mobile-header.pug
-		.member-content(data-sticky-container)
-			section.members(data-sticky data-margin-top="0")
+		.member-content
+			section.members
 				.member-head
-					.member-title
+					.member-title.member-title-hide
 						p.font-white SHIFT & Cooperations
-					.member-info
+					.member-info.member-info-hide
 						.member-info-block
 							p.font-blue Average Age
 							span.font-white 25
@@ -18,10 +18,10 @@ block main-content
 							p.font-blue Cooperations
 							span.font-white 22
 					.clearfix
-				.member-thumbnail-wrap.grid-x.grid-margin-x
+				.member-thumbnail-wrap.grid-x.grid-margin-x.member-thumbnail-hide
 					- var members = [{image: 'images/haimi1.png', bimage: 'images/haimi2.png', title: 'Producer', name: 'HaimiTu', role: 'Founder'},{image: 'images/haimi1.png', bimage: 'images/haimi2.png', title: 'Director', name: 'LeoSa', role: 'Founder'},{image: 'images/haimi1.png', bimage: 'images/haimi2.png', title: 'Visual Designer', name: 'Liang', role: 'Founder'},{image: 'images/haimi1.png', bimage: 'images/haimi2.png', title: 'Producer', name: 'SamJi', role: 'Joined 2015.1'},{image: 'images/haimi1.png', bimage: 'images/haimi2.png', title: 'Visual Designer', name: 'LiangJi', role: 'Joined 2015.1'},{image: 'images/haimi1.png', bimage: 'images/haimi2.png', title: 'Producer', name: 'HaimiTu', role: 'Founder'},{image: 'images/haimi1.png', bimage: 'images/haimi2.png', title: 'Director', name: 'LeoSa', role: 'Founder'},{image: 'images/haimi1.png', bimage: 'images/haimi2.png', title: 'Visual Designer', name: 'Liang', role: 'Founder'},{image: 'images/haimi1.png', bimage: 'images/haimi2.png', title: 'Producer', name: 'SamJi', role: 'Joined 2015.1'},{image: 'images/haimi1.png', bimage: 'images/haimi2.png', title: 'Visual Designer', name: 'LiangJi', role: 'Joined 2015.1'}]
 							each member in members
-								.member-thumbnail-block.cell.small-1.large-4
+								.member-thumbnail-block.cell.large-4
 									.member-card
 										.member-card-front
 											.front-left
@@ -41,5 +41,15 @@ block main-content
 												.back-bottom
 													.divider.bg-white
 													p.bcard-role=member.role
+			.clearfix
+			.join-us
+				span.join-title join us
+				.join-info
+					p Contact us by phone or Email
+					.divider.bg-black
+					a(href="#") +886 912341234
+					.divider.bg-black
+					a(href="#") Shiftstudioco@gmail.com
+				.clearfix
+			include components/footer.pug
 			include components/social.pug
-			include components/chat-box.pug
