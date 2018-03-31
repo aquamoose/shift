@@ -3,14 +3,41 @@ extend layouts/index-layout.pug
 block script
 
 block main-content
-	.content.barba-container.content-loading(data-namespace='contact')
+	.content.barba-container.content-loading(data-namespace='about')
 		include components/mobile-header.pug
 		.about-content
-			.creative-production-block.dark-block
-				img(src="images/about-adv1.png")
-				.creative-production-info
+			.creative-production-block
+				img(src="images/about-adv1.png").creative-img-hide
+				.about-content-info.creative-production-info.creative-production-info-hide
 					span Advantage 1
-					p Creative & Production
+					p.about-title Creative & Production
+					p It is not the traditional dual antithesis.It is two commentary to always, flexibly deliver results tailored plements rooting form two poles respectively, balfor the needs of every project. ancing but not weakening each other. 
+					a(href="works.html") WORKS >>
 				.clearfix
+			.creative-production-triangle
+			.strategy-block
+				.about-content-info.strategy-info.strategy-info-hide
+					span Advantage 2
+					p.about-title Strategy & Insight
+					p It is not the traditional dual antithesis.It is two commentary to always, flexibly deliver results tailored plements rooting form two poles respectively, balfor the needs of every project. ancing but not weakening each other. 
+				img(src="images/strategyBG.png").strategy-img-hide
+				.clearfix
+			.performance-block
+				.performance-triangle
+				.about-content-info.performance-info.performance-info-hide
+					span Advantage 3
+					p.about-title Distribution & Preformance
+					p It is not the traditional dual antithesis.It is two commentary to always, flexibly deliver results tailored plements rooting form two poles respectively, balfor the needs of every project. ancing but not weakening each other. 
+				img(src="images/performanceBG.png").performance-img-hide
+				.clearfix
+			.team-block
+				.about-content-info.team-info.team-info-hide
+					span Advantage 4
+					p.about-title Young
+					p.about-title Powerful Team
+					p It is not the traditional dual antithesis.It is two commentary to always, flexibly deliver results tailored plements rooting form two poles respectively, balfor the needs of every project. ancing but not weakening each other. 
+					a(href="members.html") MEMBERS >>
+				.team-img.team-img-hide
+					img(src="images/teamBG.png")
 			include components/footer.pug
 			include components/social.pug

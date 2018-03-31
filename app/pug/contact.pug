@@ -7,6 +7,7 @@ block main-content
 		include components/mobile-header.pug
 		.contact-content
 			.contact-header-wrap
+				.contact-shadow-hack
 				.contact-header
 					span.font-white contact us
 			.contact-info-wrap.grid-x
@@ -38,9 +39,9 @@ block main-content
 				.service-process-head
 					span Service Process
 				.service-process-block.grid-x.align-center
-					-var services = [{name: "Photography", color: "blue"}, {name: "Activity Record", color: "black"}, {name: "Advertising", color: "blue"}, {name: "MV", color: "black"}]
+					-var services = [{name: "Photography", imgClass: 'photo'}, {name: "Activity Record", imgClass: 'record'}, {name: "Advertising", imgClass: 'advertising'}, {name: "MV", imgClass: 'mv'}]
 						each service in services
-							a(href="#", class=service.color).service-process.small-12.medium-6.large-3
+							a(href="#", class=service.imgClass).service-process.small-12.medium-6.large-3
 								p=service.name
 			include components/footer.pug
 			include components/social.pug

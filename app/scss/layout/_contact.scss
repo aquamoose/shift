@@ -2,12 +2,24 @@
 	width: 100%;
 	height: auto;
 	.contact-header-wrap {
-		padding-top: 290px;
+		padding-top: 230px;
 		background: $white center no-repeat;
-		background-image: url(../images/membersBG.png);
-		background-size: 50%;
+		background-image: url(../images/contactBG.png);
+		background-size: cover;
+		position: relative;
+		.contact-shadow-hack {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			box-shadow: 0 0 100px 15px rgba(0,0,0,1) inset;
+			z-index: 1;
+		}
 		.contact-header {
 			margin-left: 20%;
+			position: relative;
+			z-index: 2;
 			@include for-phone-only {
 				margin-left: 0;
 			}
@@ -165,12 +177,6 @@
 			@include for-phone-only {
 				padding-top: 100px;
 			}
-			.blue {
-				background: $blue;
-			}
-			.black {
-				background: $black;
-			}
 			.service-process {
 				text-align: center;
 				padding: 0.9375em;
@@ -178,6 +184,22 @@
 					font-size: 1.875em;
 					color: $white;
 				}
+			}
+			.photo {
+				background: $blue url(../images/service-04.png) center no-repeat;
+			}
+			.record {
+				background: $black url(../images/service-02.png) center no-repeat;
+			}
+			.advertising {
+				background: $blue url(../images/service-03.png) center no-repeat;
+			}
+			.mv {
+				background: $black url(../images/service-05.png) center no-repeat;
+			}
+			.photo, .record, .advertising, .mv {
+				padding-bottom: 360px;
+				background-size: cover;
 			}
 		}
 	}

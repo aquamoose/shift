@@ -2,6 +2,7 @@ var Home = Barba.BaseView.extend({
     namespace: "home",
     onEnter: function () {},
     onEnterCompleted: function () {
+    	preloaderTimeline();
         initHome();
     },
     onLeave: function () {},
@@ -14,6 +15,7 @@ var Works = Barba.BaseView.extend({
     namespace: "works",
     onEnter: function () {},
     onEnterCompleted: function () {
+    	preloaderTimeline();
         initWorks();
     },
     onLeave: function () {},
@@ -26,6 +28,7 @@ var Members = Barba.BaseView.extend({
     namespace: "members",
     onEnter: function () {},
     onEnterCompleted: function () {
+    	preloaderTimeline();
         initMembers();
     },
     onLeave: function () {},
@@ -38,7 +41,20 @@ var Contact = Barba.BaseView.extend({
     namespace: "contact",
     onEnter: function () {},
     onEnterCompleted: function () {
-        initContact();
+    	preloaderTimeline();
+    },
+    onLeave: function () {},
+    onLeaveCompleted: function () {
+    	$('.menu-button').removeClass('close');
+		$('.mobile-nav').removeClass('mobile-nav-open', 300);
+    }
+});
+var About = Barba.BaseView.extend({
+    namespace: "about",
+    onEnter: function () {},
+    onEnterCompleted: function () {
+    	preloaderTimeline();
+        initAbout();
     },
     onLeave: function () {},
     onLeaveCompleted: function () {
@@ -78,11 +94,12 @@ function preloaderTimeline() {
 	});
 }
 $(function () {
+	initGlobal();
 	Home.init();
 	Works.init();
 	Members.init();
 	Contact.init();
-	preloaderTimeline();
+	About.init();
 	Barba.Pjax.init();
     Barba.Prefetch.init();
     var FadeTransition = Barba.BaseTransition.extend({
@@ -175,11 +192,16 @@ function initGlobal() {
 		} else {
 			$(this).removeClass('has-link');
 		}
-		if(contentAttr == 'works') {
-			$(".nav-menu ul").addClass('works-nav');
-		} else if(contentAttr == 'members') {
-			$(".nav-menu ul").addClass('works-nav');
-		} else if(contentAttr == 'contact') {
+		// if(contentAttr == 'works') {
+		// 	$(".nav-menu ul").addClass('works-nav');
+		// } else if(contentAttr == 'members') {
+		// 	$(".nav-menu ul").addClass('works-nav');
+		// } else if(contentAttr == 'contact') {
+		// 	$(".nav-menu ul").addClass('works-nav');
+		// } else {
+		// 	$(".nav-menu ul").removeClass('works-nav');
+		// }
+		if(contentAttr != 'home') {
 			$(".nav-menu ul").addClass('works-nav');
 		} else {
 			$(".nav-menu ul").removeClass('works-nav');
@@ -274,28 +296,31 @@ function initWorks() {
 			$('.map-more-right').fadeIn();
 		}
 	});
-	$(document).scroll(function(){
-		if(($('.preview-wrapper').offset().top) > 0) {
-			$('.map-more-top').fadeOut();
-		} else {
-			$('.map-more-top').fadeIn();
-		}
-		if(($('.preview-wrapper').offset().left) > 0) {
-			$('.map-more-left').fadeOut();
-		} else {
-			$('.map-more-left').fadeIn();
-		}
-		if($('.preview-wrapper').offset().top + $('.preview-wrapper').height() < $(window).innerHeight()) {
-			$('.map-more-down').fadeOut();
-		} else {
-			$('.map-more-down').fadeIn();
-		}
-		if($('.preview-wrapper').offset().left + $('.preview-wrapper').width() < $(window).innerWidth()) {
-			$('.map-more-right').fadeOut();
-		} else {
-			$('.map-more-right').fadeIn();
-		}
-	});
+	if($('.content').attr('date-namespace') == 'works') {
+		$(document).scroll(function(){
+			if(($('.preview-wrapper').offset().top) > 0) {
+				$('.map-more-top').fadeOut();
+			} else {
+				$('.map-more-top').fadeIn();
+			}
+			if(($('.preview-wrapper').offset().left) > 0) {
+				$('.map-more-left').fadeOut();
+			} else {
+				$('.map-more-left').fadeIn();
+			}
+			if($('.preview-wrapper').offset().top + $('.preview-wrapper').height() < $(window).innerHeight()) {
+				$('.map-more-down').fadeOut();
+			} else {
+				$('.map-more-down').fadeIn();
+			}
+			if($('.preview-wrapper').offset().left + $('.preview-wrapper').width() < $(window).innerWidth()) {
+				$('.map-more-right').fadeOut();
+			} else {
+				$('.map-more-right').fadeIn();
+			}
+		});
+	}
+	
 	$('.map-more-top').mousedown(function(){
 		$('.works-map-wrapper').kinetic('start', {velocityY: -10 });
 	}).mouseup(function(){
@@ -421,18 +446,41 @@ function initMembers() {
 	};
 	
 }
-function initContact() {
+function initAbout() {
 	initGlobal();
-	
+	setTimeout(function(){
+		$('.creative-production-block img').removeClass('creative-img-hide');
+		second();
+	}, 1000);
+	function second() {
+		setTimeout(function(){
+			$('.creative-production-info').removeClass('creative-production-info-hide');
+		}, 500);
+	}
+	$(document).scroll(function(){
+		var creativeTop = $(".creative-production-triangle").offset().top;
+		var performanceTop = $(".performance-block img").offset().top;
+		var teamTop = $(".team-block").offset().top;
+		var teamImgTop = $(".team-img").offset().top;
+		var winTop = $(window).scrollTop();
+		var winHeight = $(window).height() / 2;
+		if(creativeTop - winTop < 200) {
+			$(".strategy-block img").removeClass('strategy-img-hide');
+			setTimeout(function(){
+				$('.strategy-info').removeClass('strategy-info-hide');
+			}, 500);
+		}
+		if(performanceTop - winTop < winHeight) {
+			$(".performance-block img").removeClass('performance-img-hide');
+			setTimeout(function(){
+				$('.performance-info').removeClass('performance-info-hide');
+			}, 500);
+		}
+		if(teamTop - winTop < winHeight) {
+			$(".team-info").removeClass('team-info-hide');
+		}
+		if(teamImgTop - winTop < winHeight) {
+			$('.team-img').removeClass('team-img-hide');
+		}
+	});		
 }
-
-
-
-
-
-
-
-
-
-
-
