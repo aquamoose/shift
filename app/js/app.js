@@ -38,10 +38,11 @@ var Members = Barba.BaseView.extend({
     }
 });
 var Contact = Barba.BaseView.extend({
-    namespace: "contact",
+    namespace: "contact-us",
     onEnter: function () {},
     onEnterCompleted: function () {
     	preloaderTimeline();
+    	initContact();
     },
     onLeave: function () {},
     onLeaveCompleted: function () {
@@ -445,6 +446,9 @@ function initMembers() {
 		}, 1400);
 	};
 	
+}
+function initContact() {
+	initGlobal();
 }
 function initAbout() {
 	initGlobal();
