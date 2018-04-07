@@ -9,9 +9,9 @@ block main-content
 			section.new-work-wrap
 				h2.font-white LATEST WORK
 				.divider.bg-white
-				- var list = [{img: 'images/new-work.png', serial: '#07', tag: 'SHIFT Work', title: '3M Post-it Online Advertising'}, { img : 'images/new-work.png', serial : '#08', tag: 'SHIFT Work', title: '4M Tap-it Offline Advertising' }]
+				- var list = [{img: 'images/new-work.png', serial: '#07', tag: 'SHIFT Work', title: '3M Post-it Online Advertising', loc: ""}, { img : 'images/new-work.png', serial : '#08', tag: 'SHIFT Work', title: '4M Tap-it Offline Advertising', loc: "" }]
 					each item in list
-						a.new-work.font-black
+						a.new-work.font-black(href="works.html")
 							.new-work-image
 								img(src=item.img)
 							.new-work-des
@@ -25,9 +25,6 @@ block main-content
 				a.new-work-box
 					span.new-work-button
 			section.c-info
-				.c-bullet
-					.b-left
-					.b-right
 				- var list = [{title: 'Average Age', number: '25', tag: 'age'}, {title: 'Works', number: '61', tag: 'works'}, {title: 'Cooperations', number: '22', tag: 'coop'}]
 					each item in list
 						.c-info-box

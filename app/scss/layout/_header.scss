@@ -28,14 +28,19 @@ header {
 		}
 	}
 	nav ul {
+		margin-top: 10px;
 		li {
 			margin: 1.25em;
 			display: inline-block;
 			a {
 				@include font(1.125em, 700, none, 1.2em);
 				position: relative;
+				@include transition(all .3s);
+				@include for-mid-desktop-up {
+					font-size: 1.5em;
+				}
 				&:hover {
-					color: $black;
+					color: $blue;
 				}
 			}
 			.has-link {
@@ -63,8 +68,8 @@ header {
 .mobile-nav {
 	z-index: 999;
 	position: absolute;
-	right: 35px;
-	top: 35px;
+	right: 25px;
+	top: 25px;
 	background-color: $black;
 	text-align: center;
 	width: 46px;

@@ -35,7 +35,7 @@ body {
 	height: 100%;
 	padding: 1.2%;
 	min-height: 100%;
-}
-.content-loading {
-	// display: none;
+	@include for-phone-only {
+		padding: 2.4%;
+	}
 }

@@ -1,6 +1,7 @@
 .contact-content {
 	width: 100%;
 	height: auto;
+	@include transition(all .5s);
 	.contact-header-wrap {
 		padding-top: 230px;
 		background: $white center no-repeat;
@@ -37,6 +38,10 @@
 	}
 	.contact-info-wrap {
 		padding-top: 40px;
+		@include for-phone-only {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
 		.contact-box {
 			text-align: center;
 			div {
@@ -45,7 +50,7 @@
 				@include for-phone-only {
 					margin-bottom: 0;
 				}
-				@include for-small-desktop-up {
+				@include for-tablet-portrait-up {
 					margin-right: auto;
 					margin-left: auto;
 					width: 400px;
@@ -180,9 +185,17 @@
 			.service-process {
 				text-align: center;
 				padding: 0.9375em;
+				cursor: pointer;
+				@include transition(all .3s);
 				p {
 					font-size: 1.875em;
 					color: $white;
+				}
+				&:hover {
+					background-color: $yellow;
+					p {
+						color: $black;
+					}
 				}
 			}
 			.photo {
@@ -202,5 +215,57 @@
 				background-size: cover;
 			}
 		}
+	}
+}
+.contact-service-lightbox {
+	width: 100%;
+	position: fixed;
+	top: 100%;
+	text-align: center;
+	z-index: 700;
+	opacity: 0;
+	display: none;
+	overflow-y: scroll;
+	height: 100%;
+	.lightbox-overlay {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: $black;
+		background: rgba(44,40,36,.9);
+	}
+	.lightbox-close {
+		position: fixed;
+		right: 30px;
+		top: 30px;
+		width: 32px;
+		height: 32px;
+		opacity: 0.5;
+		z-index: 999;
+		@include transition(all .3s);
+		&:before, &:after {
+			position: absolute;
+			left: 15px;
+			content: ' ';
+			height: 33px;
+			width: 2px;
+			background-color: $white;
+		}
+		&:before {
+			transform: rotate(45deg);
+		}
+		&:after {
+			transform: rotate(-45deg);
+		}
+		&:hover {
+			opacity: 1;
+		}
+	}
+	img {
+		position: relative;
+		margin: 70px auto;
+		z-index: 800;
 	}
 }

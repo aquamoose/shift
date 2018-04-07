@@ -12,11 +12,11 @@ var del = require('del');
 var runSequence = require('run-sequence');
 
 gulp.task('pug', function(){
-	return gulp.src('app/pug/*.pug')
+	return gulp.src('app/pug/**/*.pug')
 		.pipe(pug({
 			pretty: true
 		}))
-		.pipe(gulp.dest('app/'))
+		.pipe(gulp.dest('app/'));
 });
 gulp.task('sass', function(){
 	return gulp.src('app/scss/**/*.scss')

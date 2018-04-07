@@ -1,17 +1,19 @@
 .member-content {
 	background: url(../images/workBG.png) top left repeat;
 	background-size: 10px 10px;
+	background-attachment: fixed;
 	position: relative;
 	width: 100%;
 	height: auto;
 	.members {
-		background: url(../images/membersBG.png) center 30px no-repeat;
+		background: url(../images/member-hero.png) center 0 no-repeat;
 		background-size: 100%;
+		background-attachment: fixed;
 		width: 100%;
 		max-width: 1440px;
 		margin: 0 auto;
 		height: auto;
-		padding: 65px 20px 20px 20px;
+		padding: 300px 20px 20px 20px;
 		@include for-phone-only {
 			padding-left: 0;
 			padding-right: 0;
@@ -62,18 +64,21 @@
 					height: auto;
 					display: inline-block;
 					margin: 0 15px;
+					padding: 5px 0;
+					background: $black;
+					@include radius(10px);
 					p {
 						font-size: 1.063em;
 						text-align: center;
+						margin-bottom: 0;
 					}
 					span {
 						display: inline-block;
 						width: 100%;
-						background: $black;
 						font-size: 6em;
 						font-weight: bold;
 						text-align: center;
-						line-height: 1.2em;
+						line-height: 1;
 						@include radius(10px);
 					}
 				}
@@ -113,12 +118,12 @@
 					width: 100%;
 					height: 100%;
 					transform-style: preserve-3d;
-					@include transition(all .5s);
+					@include transition(all 1s);
 				}
 				.member-card-front {
 					background: $blue;
 					height: 100%;
-					backface-visibility: hidden;
+					-webkit-backface-visibility: hidden;
 					position: absolute;
 					overflow: hidden;
 					width: 100%;
@@ -165,7 +170,7 @@
 				.member-card-back {
 					background: $black;
 					height: 100%;
-					backface-visibility: hidden;
+					-webkit-backface-visibility: hidden;
 					position: absolute;
 					overflow: hidden;
 					width: 100%;
@@ -218,7 +223,7 @@
 				// 	}		
 				// }
 				@include for-phone-only {
-					&:nth-child(odd) {
+					&:nth-child(even) {
 						.member-card {
 							transform: rotateY(180deg);
 							.member-card-front p, .member-card-front .divider{
