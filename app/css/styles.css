@@ -1287,7 +1287,8 @@ header {
         .single-work-content .single-work .single-work-text-box .single-work-text .p-break {
           margin: 30px 0 10px 0; }
     .single-work-content .single-work .paragraph-image {
-      margin: 20px 0 0 0; }
+      margin: 20px 0 0 0;
+      width: 100%; }
     @media (min-width: 900px) {
       .single-work-content .single-work {
         max-width: calc(100% - 300px); } }

@@ -415,6 +415,7 @@ function initWorks() {
 	$('.single-work-close').click(function(){
 		$('.single-work-loader').removeClass('single-work-loader-up', {
 			complete: function() {
+				history.pushState(null, '', '/works');
 				$('.works-content').removeClass('blur');
 				$('.single-work-box').fadeOut();
 			    $('.single-work-box').promise().done(function(){
