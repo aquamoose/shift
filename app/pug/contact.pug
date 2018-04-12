@@ -39,7 +39,7 @@ block main-content
 				.service-process-head
 					span Service Process
 				.service-process-block.grid-x.align-center
-					-var services = [{name: "Photography", imgClass: 'photo', link: "photography.jpg"}, {name: "Activity Record", imgClass: 'record', link: "activity-record.jpg"}, {name: "Advertising", imgClass: 'advertising', link: "commercial.jpg"}, {name: "MV", imgClass: 'mv', link: "mv.jpg"}]
+					-var services = [{name: "Photography", imgClass: 'photo', link: "photography"}, {name: "Activity Record", imgClass: 'record', link: "activity-record"}, {name: "Advertising", imgClass: 'advertising', link: "branding"}, {name: "MV", imgClass: 'mv', link: "mv"}]
 						each service in services
 							div(data-link=service.link, class=service.imgClass).service-process.small-12.medium-6.large-3
 								p=service.name
