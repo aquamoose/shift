@@ -285,14 +285,38 @@ function initWorks() {
 	var windowRatio = $(window).innerWidth() - 245;
 	var previewInnerW = ($(window).innerWidth() - 245) / $('.preview-wrapper').innerWidth();
 	$('.works-map').width((elWidth * mapSize) + 100);
-	
-	$('.works-content').kinetic();
-	$('.works-map').mouseout(function(){
-		$('.works-map-wrapper').kinetic('detach');
+	if($(window).width() > 1024) {
+		$('.works-content').kinetic();
+		$('.works-map').mouseout(function(){
+			$('.works-map-wrapper').kinetic('detach');
+		});
+		$('.works-map').mouseover(function(){
+			$('.works-map-wrapper').kinetic('attach');
+		});
+	} else {
+		$('.works-content').kinetic('detach');
+	}
+	$(window).resize(function(){
+		if($(window).width() > 1024) {
+			$('.works-content').kinetic();
+			$('.works-map').mouseout(function(){
+				$('.works-map-wrapper').kinetic('detach');
+			});
+			$('.works-map').mouseover(function(){
+				$('.works-map-wrapper').kinetic('attach');
+			});
+		}  
+		if($(window).width() < 1023){
+			$('.works-content').kinetic('detach');
+			$('.works-map-wrapper').kinetic('detach');
+		}
 	});
-	$('.works-map').mouseover(function(){
-		$('.works-map-wrapper').kinetic('attach');
-	});
+	// $('.works-map').mouseout(function(){
+	// 	$('.works-map-wrapper').kinetic('detach');
+	// });
+	// $('.works-map').mouseover(function(){
+	// 	$('.works-map-wrapper').kinetic('attach');
+	// });
 	$('.works-map').mousemove(function(){
 		if(($('.preview-wrapper').offset().top) > 0) {
 			$('.map-more-top').fadeOut();
