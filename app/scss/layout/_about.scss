@@ -60,7 +60,7 @@
 			float: none;
 			margin-left: 0;
 			@include transition(all .5s);
-			@include for-tablet-landscape-up {
+			@include for-tablet-portrait-up {
 				width: 50%;
 				float: left;
 				margin-left: 1%;
@@ -82,8 +82,11 @@
 			@include transition(all .5s);
 			@include for-phone-only {
 				padding: 0 1.2em;
+				.about-title {
+					font-size: 3.5em;
+				}
 			}
-			@include for-tablet-landscape-up {
+			@include for-tablet-portrait-up {
 				float: left;
 				width: 42%;
 				margin-left: 30px;
@@ -107,7 +110,7 @@
 		margin: auto;
 		z-index: 1;
 		@include for-phone-only {
-			padding-top: 0;
+			padding-top: 20px;
 		}
 		img {
 			position: absolute;
@@ -184,6 +187,9 @@
 			}
 			.about-title {
 				color: $white;
+				@include for-phone-only {
+					font-size: 3.5em;
+				}
 			}
 		}
 		.strategy-img-hide {
@@ -218,8 +224,13 @@
 			@include for-phone-only {
 				float: none;
 			}
+			@include for-tablet-portrait-up {
+				width: 100%;
+				margin-left: -50%;
+			}
 			@include for-small-desktop-up {
 				width: 50%;
+				margin-left: 1%;
 			}
 			@include for-desktop-up {
 				margin-left: 1em;
@@ -240,9 +251,12 @@
 			@include for-phone-only {
 				padding: 0 1.2em;
 			}
+			@include for-tablet-portrait-up {
+				width: 50%;
+				margin-top: 2%;
+			}
 			@include for-small-desktop-up {
 				width: 43%;
-				margin-top: 2%;
 			}
 			@include for-desktop-up {
 				width: 43%;
@@ -269,6 +283,9 @@
 			.about-title {
 				color: $blue;
 				max-width: 500px;
+				@include for-phone-only {
+					font-size: 3.5em;
+				}
 				@include for-desktop-up {
 					max-width: 100%;
 				}
@@ -339,6 +356,9 @@
 				color: $blue;
 				margin-top: 10px;
 				max-width: 100%;
+				@include for-phone-only {
+					font-size: 3.5em;
+				}
 			}
 			a {
 				color: $blue;

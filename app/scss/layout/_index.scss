@@ -7,13 +7,22 @@
 	@include for-phone-only {
 		background-size: 200%;
 	}
+	@include for-tablet-portrait-up {
+		background-size: 150%;
+	}
+	@include for-tablet-landscape-up {
+		background-size: 100%;
+	}
+	@include for-desktop-up {
+		background-size: 85%;
+	}
 	.new-work-wrap {
 		position: absolute;
 		left: -250px;
 		top: 0;
 		bottom: 0;
 		width: 230px;
-		background: $black url('../images/newWorkBG.png') 30% 150% no-repeat;
+		background: $black url('../images/newWorkBG.png') 30% 100% no-repeat;
 		background-size: 200%;
 		z-index: 10;
 		padding-top: 60px;
@@ -199,10 +208,13 @@
 	}
 	.c-info {
 		position: absolute;
-		right: 1.2%;
+		right: 15px;
 		top: 50%;
     	transform: translateY(-50%);
     	background: none;
+    	span {
+    		font-family: "Basic Sans Alt-Black";
+    	}
     	@include for-phone-only {
 			display: none;
 		}
@@ -233,6 +245,7 @@
     			font-size: 0.875em;
     			font-weight: bold;
     			margin-bottom: 5px;
+    			font-family: "Basic Sans Alt-SemiBold";
     		}
     		.c-info-number {
     			position: relative;

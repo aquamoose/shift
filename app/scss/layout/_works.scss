@@ -2,31 +2,19 @@
 	width: 100%;
 	min-height: 100%;
 	overflow: auto;
+	background: url(../images/workBG.png) top left repeat;
+	background-size: 10px 10px;
 	@include transition(all .5s);
 	.work-nav-arrow {
 		position: absolute;
 		top: 20%;
-		left: 30px;
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-width: 24px 0 24px 24px;
-		border-color: transparent transparent transparent $blue;
-		transform: rotate(0);
+		left: 15px;
+		width: 25px;
+		height: 55px;
+		background: url(../images/work-nav-arrow.svg) no-repeat;
+		background-size: cover;
 		display: none;
 		@include transition(all .3s);
-		&:before {
-			display: block;
-			content: '';
-			position: absolute;
-			width: 0;
-			height: 0;
-			top: -20px;
-			left: -22px;
-			border-style: solid;
-			border-width: 20px 0 20px 20px;
-			border-color: transparent transparent transparent $black;
-		}
 		@include for-phone-only {
 			display: block;
 		}
@@ -235,6 +223,7 @@
 						display: inline-block;
 						width: auto;
 						padding: 3px 5px;
+						margin-bottom: 5px;
 						vertical-align: top;
 						@include radius(1em);
 						border: 1px solid $blue;
@@ -404,6 +393,7 @@
 					color: $black;
 					display: inline-block;
 					@include transition(all .3s);
+
 				}
 				.work-tags {
 					p {
@@ -469,22 +459,34 @@
 					}
 				}
 			}
+			.single-work-number-title-box {
+				vertical-align: bottom;
+				direction: rtl;
+				@include for-phone-only {
+					direction: ltr;
+				}
+			}
 			.single-work-title, .single-work-number {
 				p {
 					font-family: "Basic Sans Alt-Black";
 					font-size: 4em;
 					font-weight: bold;
+					line-height: 1;
 					@include for-phone-only {
-						line-height: 1;
+						font-size: 2.188em;
 					}
 				}
 			}
 			.single-work-title {
-				float: left;
-				max-width: 600px;
+				display: inline-block;
+				text-align: left;
+				width: calc(100% - 70px);
+				@include for-phone-only {
+					width: 100%;
+				}
 			}
 			.single-work-number {
-				float: right;
+				display: inline-block;
 				@include for-phone-only {
 					float: none;
 				}

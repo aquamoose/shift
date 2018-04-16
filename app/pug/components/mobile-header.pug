@@ -5,7 +5,7 @@ nav.mobile-nav
 		ul
 			- var list = [{name: 'About Us', direct: 'about.html'}, { name : 'Works', direct : 'works.html' }, { name : 'Members', direct : 'members.html' }, { name : 'Contact Us', direct : 'contact.html' }]
 				each item in list
-					li: a(href=item.direct, target=item.target).font-white=item.name
+					li: a(href=item.direct, target=item.target)=item.name
 			.divider.bg-blue
 			.social-share
 				a(href="#").font-blue Facebook

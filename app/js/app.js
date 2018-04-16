@@ -78,6 +78,9 @@ function queue(start) {
 }
 function preloaderTimeline() {
 	$(window).load(function(){
+		$('.loader-gif').fadeTo('500', 0, function() {
+			$(this).hide();
+		});
 		var dUp = document.querySelector('.loader-bottom');
 	    var dDown = document.querySelector('.loader-top');
 	    var loadUp = anime({
@@ -90,7 +93,7 @@ function preloaderTimeline() {
 		  targets: dDown,
 		  height: '0%',
 		  easing: 'easeInSine',
-		  duration: 1500,
+		  duration: 1500,  
 		});
 	});
 }
@@ -112,6 +115,9 @@ $(function () {
 	 
 	  fadeOut: function() {
 	    return new Promise(function(resolve){
+	    	$('.loader-gif').fadeIn('1500', function(){
+	    		$('.loader-gif').fadeTo('1500', 1);
+	    	});
 		    var dDown = document.querySelector('.loader-top');
 		    anime({
 			  targets: dDown,
@@ -133,28 +139,9 @@ $(function () {
 	  },
 
 	  fadeIn: function() {
-	    
-	 //    var _this = this;
-	 //    var $el = $(this.newContainer);
-	 //    window.scrollTo(0,0)
-	 //    $(this.oldContainer).hide();
-	 //    var dDown = document.querySelector('.loader-bottom');
-	 //    var dUp = document.querySelector('.loader-top');
-	 //    anime({
-		//   targets: dDown,
-		//   height: '0%',
-		//   easing: 'easeInSine',
-		//   duration: 1000,
-		// });
-		// anime({
-		//   targets: dUp,
-		//   height: '0%',
-		//   easing: 'easeInSine',
-		//   duration: 1000,
-		//   complete: function(){
-		//   	_this.done();
-		//   }
-		// });
+	  	$('.loader-gif').fadeTo('500', 0, function() {
+			$(this).hide();
+		});
 		var _this = this;
 		var dUp = document.querySelector('.loader-bottom');
 	    var dDown = document.querySelector('.loader-top');
@@ -428,6 +415,7 @@ function initWorks() {
 		   		$('.single-work-content').click(function(){
 	   				$(this).parent().removeClass('single-work-loader-up', {
 						complete: function() {
+							$('.works-content').removeClass('blur');
 							$('.single-work-box').fadeOut();
 						    $('.single-work-box').promise().done(function(){
 							    $('.single-work-loader').html('');
