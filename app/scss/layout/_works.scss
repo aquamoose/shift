@@ -265,6 +265,9 @@
 		top: 50%;
 		transform:  translate(0,-50%);
 		background: url(../images/direction-arrow.svg) no-repeat;
+		@include for-phone-only {
+			display: none!important;
+		}
 	}
 	.map-more-top {
 		height: 50px;
@@ -277,7 +280,7 @@
 		transform: translate(-50%,0) rotate(270deg);
 		background: url(../images/direction-arrow.svg) no-repeat;
 		@include for-phone-only {
-			top: 2%;
+			display: none!important;
 		}
 	}
 	.map-more-left {
@@ -290,7 +293,7 @@
 		background: url(../images/direction-arrow.svg) no-repeat;
 		display: none;
 		@include for-phone-only {
-			left: 2%;
+			display: none!important;
 		}
 	}
 	.map-more-down {
@@ -301,6 +304,9 @@
 		left: 50%;
 		transform: translate(-50%,0) rotate(90deg);
 		background: url(../images/direction-arrow.svg) no-repeat;
+		@include for-phone-only {
+			display: none!important;
+		}
 	}
 }
 .single-work-box {
@@ -400,7 +406,9 @@
 						font-family: "Basic Sans Alt-SemiBold";
 						font-size: 0.875em;
 						display: inline-block;
-						width: 65px;
+						width: auto;
+						padding: 3px 5px;
+						margin-bottom: 5px;
 						vertical-align: top;
 						@include radius(1em);
 						border: 1px solid $blue;

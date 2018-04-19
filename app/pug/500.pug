@@ -1,0 +1,14 @@
+extend layouts/index-layout.pug
+
+block script
+
+block main-content
+	.content.barba-container.content-loading(data-namespace='error')
+		include components/mobile-header.pug
+		.error-content
+			.error
+				p.title 500
+				p.sub-title UNEXPECTED ERROR
+				p.tagline Oops! Something went wrong.
+				p.tagline Don't worry though, our secret ninja will take you back to the homepage now
+				img(src="images/error.png")

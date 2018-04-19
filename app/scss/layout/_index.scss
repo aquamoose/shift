@@ -88,11 +88,6 @@
 			right: -80px;
 			top: 0;
 			@include transition(all .3s);
-			&:hover {
-				.new-work-button {
-					left: 15px;
-				}
-			}
 			.new-work-button {
 				position: absolute;
 				left: 10px;
@@ -104,6 +99,7 @@
 				top: 50%;
 				transform: rotate(0);
 				@include transition(all .3s);
+				animation: pop 1s infinite;
 			}
 			.new-work-button-open {
 				transform: rotate(180deg);
@@ -214,6 +210,8 @@
     	background: none;
     	span {
     		font-family: "Basic Sans Alt-Black";
+    		opacity: 0;
+    		@include transition(opacity, .5s);
     	}
     	@include for-phone-only {
 			display: none;
@@ -273,5 +271,16 @@
 				border-color: transparent transparent $blue transparent;
     		}
     	}
+	}
+}
+@-webkit-keyframes pop {
+	0% {
+		left: 10px;	
+	}
+	50% {
+		left: 15px;		
+	}
+	100% {
+		left: 10px;
 	}
 }

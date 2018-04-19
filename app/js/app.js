@@ -63,6 +63,19 @@ var About = Barba.BaseView.extend({
 		$('.mobile-nav').removeClass('mobile-nav-open', 300);
     }
 });
+var About = Barba.BaseView.extend({
+    namespace: "error",
+    onEnter: function () {},
+    onEnterCompleted: function () {
+    	preloaderTimeline();
+        initError();
+    },
+    onLeave: function () {},
+    onLeaveCompleted: function () {
+    	$('.menu-button').removeClass('close');
+		$('.mobile-nav').removeClass('mobile-nav-open', 300);
+    }
+});
 function queue(start) {
 	var rest = [].splice.call(arguments, 1),
 	promise = $.Deferred();
@@ -246,6 +259,21 @@ function initHome() {
 			$('.new-work').last().show();
 		}
 	});
+	setTimeout(function(){
+		$('.c-info-number span').each(function () {
+			$(this).css('opacity', '1');
+		    $(this).prop('Counter',0).animate({
+		        Counter: $(this).data('value')
+		    }, {
+		        duration: 4000,
+		        easing: 'swing',
+		        step: function (now) {
+		            $(this).text(Math.ceil(now));
+		        }
+		    });
+		});
+	}, 2000);
+	
 }
 function initWorks() {
 	initGlobal();
@@ -305,15 +333,15 @@ function initWorks() {
 	// 	$('.works-map-wrapper').kinetic('attach');
 	// });
 	$('.works-map').mousemove(function(){
-		if(($('.preview-wrapper').offset().top) > 0) {
-			$('.map-more-top').fadeOut();
-		} else {
+		if(($('.preview-wrapper').offset().top) < 0) {
 			$('.map-more-top').fadeIn();
-		}
-		if(($('.preview-wrapper').offset().left) > 0) {
-			$('.map-more-left').fadeOut();
 		} else {
+			$('.map-more-top').fadeOut();
+		}
+		if(($('.preview-wrapper').offset().left) < 0) {
 			$('.map-more-left').fadeIn();
+		} else {
+			$('.map-more-left').fadeOut();
 		}
 		if($('.preview-wrapper').offset().top + $('.preview-wrapper').height() < $(window).innerHeight()) {
 			$('.map-more-down').fadeOut();
@@ -415,6 +443,7 @@ function initWorks() {
 		   		$('.single-work-content').click(function(){
 	   				$(this).parent().removeClass('single-work-loader-up', {
 						complete: function() {
+							history.pushState(null, '', '/works');
 							$('.works-content').removeClass('blur');
 							$('.single-work-box').fadeOut();
 						    $('.single-work-box').promise().done(function(){
@@ -582,20 +611,11 @@ function initAbout() {
 		if(teamImgTop - winTop < winHeight) {
 			$('.team-img').removeClass('team-img-hide');
 		}
-	});	
-	// var config = {
-	// 	viewFactor: 0.15,
-	// 	duration: 800,
-	// 	distance: "0px",
-	// 	scale: 0.8
-	// }
-
-	// window.sr = new ScrollReveal(config)
-	// var stratImg = {
-	// 	reset: false,
-	// 	origin: "right",
-	// 	distance: "-100%",
-	// 	duration: 1500
-	// }
-	// sr.reveal(".performance-block img", stratImg);	
+	});		
+}
+function initError() {
+	initGlobal();
+	setTimeout(function(){
+		window.location.replace("/index.html");
+	}, 10000);
 }

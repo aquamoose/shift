@@ -25,12 +25,12 @@ block main-content
 				a.new-work-box
 					span.new-work-button
 			section.c-info
-				- var list = [{title: 'Average Age', number: '25', tag: 'age'}, {title: 'Works', number: '61', tag: 'works'}, {title: 'Cooperations', number: '22', tag: 'coop'}]
+				- var list = [{title: 'Average Age', number: '', tag: 'age', value: '25'}, {title: 'Works', number: '', tag: 'works', value: '61'}, {title: 'Cooperations', number: '', tag: 'coop', value: '22'}]
 					each item in list
 						.c-info-box
 							p.font-black=item.title
 							.c-info-number(name=item.tag)
-								span.font-white=item.number
+								span.font-white(data-value=item.value)=item.number
 			include components/social.pug
 			include components/chat-box.pug
 			include components/copyright.pug
