@@ -63,7 +63,7 @@ var About = Barba.BaseView.extend({
 		$('.mobile-nav').removeClass('mobile-nav-open', 300);
     }
 });
-var About = Barba.BaseView.extend({
+var ErrorPage = Barba.BaseView.extend({
     namespace: "error",
     onEnter: function () {},
     onEnterCompleted: function () {
@@ -117,6 +117,7 @@ $(function () {
 	Members.init();
 	Contact.init();
 	About.init();
+	ErrorPage.init();
 	Barba.Pjax.init();
     Barba.Prefetch.init();
     var FadeTransition = Barba.BaseTransition.extend({
