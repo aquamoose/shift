@@ -261,19 +261,70 @@ function initHome() {
 		}
 	});
 	setTimeout(function(){
-		$('.c-info-number span').each(function () {
-			$(this).css('opacity', '1');
-		    $(this).prop('Counter',0).animate({
-		        Counter: $(this).data('value')
-		    }, {
-		        duration: 4000,
-		        easing: 'swing',
-		        step: function (now) {
-		            $(this).text(Math.ceil(now));
-		        }
-		    });
-		});
-	}, 2000);
+	    var $age = $(".c-info-number[name='age'] span");
+        var parts = $age.text().match(/^(\d+)(.*)/);
+        if (parts.length < 2) return;
+      
+        var scale = 20;
+        var delay = 50;
+        var end = 0+parts[1];
+        var next = 0;
+        var suffix = parts[2];
+        
+        var runUp = function() {
+          var show = Math.ceil(next);
+          $age.text(''+show+suffix);
+          if (show == end) return;
+          next = next + (end - next) / scale;
+          window.setTimeout(runUp, delay);
+        }
+        $age.css('opacity', '1');
+        runUp();
+	}, 3000);
+	setTimeout(function(){
+	    var $works = $(".c-info-number[name='works'] span");
+        var parts = $works.text().match(/^(\d+)(.*)/);
+        if (parts.length < 2) return;
+      
+        var scale = 20;
+        var delay = 50;
+        var end = 0+parts[1];
+        var next = 0;
+        var suffix = parts[2];
+        
+        var runUp = function() {
+          var show = Math.ceil(next);
+          $works.text(''+show+suffix);
+          if (show == end) return;
+          next = next + (end - next) / scale;
+          window.setTimeout(runUp, delay);
+        }
+        $works.css('opacity', '1');
+        runUp();
+        second();
+	}, 4000);
+	setTimeout(function(){
+	    var $coop = $(".c-info-number[name='coop'] span");
+        var parts = $coop.text().match(/^(\d+)(.*)/);
+        if (parts.length < 2) return;
+      
+        var scale = 20;
+        var delay = 50;
+        var end = 0+parts[1];
+        var next = 0;
+        var suffix = parts[2];
+        
+        var runUp = function() {
+          var show = Math.ceil(next);
+          $coop.text(''+show+suffix);
+          if (show == end) return;
+          next = next + (end - next) / scale;
+          window.setTimeout(runUp, delay);
+        }
+        $coop.css('opacity', '1');
+        runUp();
+        second();
+	}, 5000);
 	
 }
 function initWorks() {

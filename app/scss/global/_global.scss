@@ -55,9 +55,10 @@
 }
 .loader-gif {
 	position: fixed;
-	width: 400px;
-	height: 220px;
-	background: url(../images/logo_loading.gif);
+	width: 150px;
+	// height: 220px;
+	background: url(../images/logo_loading.gif) center center no-repeat;
+	background-size: 100%;
 	left: 0;
 	right: 0;
 	top: 0;

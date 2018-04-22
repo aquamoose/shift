@@ -473,9 +473,9 @@ body {
 
 .loader-gif {
   position: fixed;
-  width: 400px;
-  height: 220px;
-  background: url(../images/logo_loading.gif);
+  width: 150px;
+  background: url(../images/logo_loading.gif) center center no-repeat;
+  background-size: 100%;
   left: 0;
   right: 0;
   top: 0;
@@ -1475,7 +1475,7 @@ header {
       .member-content .members {
         padding-left: 0;
         padding-right: 0;
-        padding: 10px 20px 20px 20px;
+        padding: 10px 0 20px 0;
         background-size: 900px; } }
     @media (min-width: 768px) {
       .member-content .members {
@@ -2137,10 +2137,10 @@ header {
       width: 600px;
       float: right;
       right: 10%;
-      -moz-transition: all 0.5s;
-      -o-transition: all 0.5s;
-      -webkit-transition: all 0.5s;
-      transition: all 0.5s; }
+      -moz-transition: all 0.7s;
+      -o-transition: all 0.7s;
+      -webkit-transition: all 0.7s;
+      transition: all 0.7s; }
       @media (max-width: 599px) {
         .about-content .strategy-block img {
           width: 100%;
@@ -2168,7 +2168,7 @@ header {
       @media (min-width: 600px) {
         .about-content .strategy-block .strategy-flake {
           right: 2%;
-          width: 50%;
+          width: 48%;
           max-width: 800px; } }
       @media (min-width: 1200px) {
         .about-content .strategy-block .strategy-flake {
@@ -2184,7 +2184,7 @@ header {
       margin-top: 10%;
       margin-left: 5%;
       width: 40%;
-      max-width: 420px;
+      max-width: 400px;
       opacity: 1;
       -moz-transition: all 0.5s;
       -o-transition: all 0.5s;
@@ -2193,7 +2193,7 @@ header {
       @media (max-width: 599px) {
         .about-content .strategy-block .strategy-info {
           width: 100%;
-          margin-top: 7%;
+          margin-top: 5%;
           margin-right: 0;
           padding: 0 1.2em;
           float: none;
@@ -2214,9 +2214,10 @@ header {
         color: #fff2cc; }
         @media (max-width: 599px) {
           .about-content .strategy-block .strategy-info .about-title {
-            font-size: 3.5em; } }
+            font-size: 3.5em;
+            margin-top: 25px; } }
     .about-content .strategy-block .strategy-img-hide {
-      right: -100%; }
+      margin-left: -100%; }
     .about-content .strategy-block .strategy-flake-hide {
       right: -100%; }
     .about-content .strategy-block .strategy-info-hide {
