@@ -301,7 +301,6 @@ function initHome() {
         }
         $works.css('opacity', '1');
         runUp();
-        second();
 	}, 4000);
 	setTimeout(function(){
 	    var $coop = $(".c-info-number[name='coop'] span");
@@ -323,7 +322,6 @@ function initHome() {
         }
         $coop.css('opacity', '1');
         runUp();
-        second();
 	}, 5000);
 	
 }
@@ -476,14 +474,39 @@ function initWorks() {
 		$('.single-work-box').promise().done(function(){
 			$('.works-content').addClass('blur');
 		    $('.single-work-loader').load('work1.html .single-work-content', function(){
-		    	$('.single-work-loader').addClass('single-work-loader-up', {
-		    		complete: function() {
-		    			$('.single-work').removeClass('single-work-hide');
-		    			setTimeout(function(){
-		    				$('.single-work-card').removeClass('single-work-card-hide');
-		    			}, 500);
-		    		}
-		    	});
+		    		var coverImage = $('.single-work-main-img img');
+		    		var loadedImgNum = 0;
+		    		coverImage.on('load', function(){
+					  loadedImgNum += 1;
+					  if (loadedImgNum == coverImage.length) {
+					    $('.single-work-loader').addClass('single-work-loader-up', {
+				    		complete: function() {
+				    			$('.single-work').removeClass('single-work-hide');
+				    			setTimeout(function(){
+				    				$('.single-work-card').removeClass('single-work-card-hide');
+				    			}, 500);
+				    		}
+				    	});
+					  }
+					});
+				   
+				   // $('.single-work-loader').addClass('single-work-loader-up', {
+			    // 		complete: function() {
+			    // 			$('.single-work').removeClass('single-work-hide');
+			    // 			setTimeout(function(){
+			    // 				$('.single-work-card').removeClass('single-work-card-hide');
+			    // 			}, 500);
+			    // 		}
+			    // 	});
+				
+		    	// $('.single-work-loader').addClass('single-work-loader-up', {
+		    	// 	complete: function() {
+		    	// 		$('.single-work').removeClass('single-work-hide');
+		    	// 		setTimeout(function(){
+		    	// 			$('.single-work-card').removeClass('single-work-card-hide');
+		    	// 		}, 500);
+		    	// 	}
+		    	// });
 		   //  	$('.related-works .work-block').click(function(){
 		   //  		$('.single-work-loader').scrollTop(0).fadeOut();
 		   //  		$('.single-work-loader').promise().done(function(){
