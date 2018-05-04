@@ -20,7 +20,7 @@
 		}
 	}
 	.work-nav-arrow-open {
-		left: 210px;
+		left: 200px;
 		transform: rotate(180deg);
 	}
 	.works-nav {
@@ -33,9 +33,6 @@
 		top: 16.2%;
 		// overflow: auto;
 		@include transition(all .3s);
-		.work-nav-arrow {
-
-		}
 		.works-category-filer {
 			height: 70px;
 			width: 100%;
@@ -162,7 +159,7 @@
 			}
 		}
 		@include for-phone-only {
-			top: 10%;
+			top: 15%;
 			left: -180px;
 		}
 	}
