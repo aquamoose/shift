@@ -559,6 +559,9 @@ function initWorks() {
 		$(this).toggleClass('work-nav-arrow-open');
 		$('.works-nav').toggleClass('works-nav-open');
 	});
+	$('.works-tutorial-box button').click(function(){
+		$('.works-tutorial-wrapper').addClass('works-tutorial-wrapper-hide');
+	});
 	// if(($('.preview-wrapper').offset().top - 100) < 0) {
 	// 	$('.map-more-top').hide();
 	// } else {

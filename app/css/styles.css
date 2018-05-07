@@ -1453,6 +1453,59 @@ header {
   position: relative;
   opacity: 1; }
 
+.works-tutorial-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(44, 40, 36, 0.9);
+  z-index: 999;
+  display: none; }
+  @media (max-width: 599px) {
+    .works-tutorial-wrapper {
+      display: block; } }
+  .works-tutorial-wrapper .works-tutorial-box {
+    width: 100%;
+    max-width: 580px;
+    margin: 100px auto 0 auto;
+    background: #2c2824;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -o-border-radius: 10px;
+    text-align: center; }
+    .works-tutorial-wrapper .works-tutorial-box img {
+      height: 300px;
+      width: auto;
+      margin: 15px auto; }
+    .works-tutorial-wrapper .works-tutorial-box p {
+      font-family: "Basic Sans Alt-SemiBold";
+      font-size: 1em;
+      color: white;
+      max-width: 250px;
+      margin: 0 auto; }
+    .works-tutorial-wrapper .works-tutorial-box p:first-of-type {
+      font-size: 1.25em; }
+      .works-tutorial-wrapper .works-tutorial-box p:first-of-type span {
+        font-family: "Basic Sans Alt-Black";
+        color: #f3dc11;
+        font-size: 1.125em; }
+    .works-tutorial-wrapper .works-tutorial-box button {
+      margin: 20px auto;
+      background: #fff2cc;
+      width: 250px;
+      font-family: "Basic Sans Alt-SemiBold";
+      font-size: 1.25em;
+      padding: 5px 0;
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
+      -moz-border-radius: 10px;
+      -o-border-radius: 10px; }
+
+.works-tutorial-wrapper-hide {
+  display: none; }
+
 .member-content {
   background: url(../images/workBG.png) top left repeat;
   background-size: 10px 10px;
