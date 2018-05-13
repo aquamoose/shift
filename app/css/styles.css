@@ -1461,14 +1461,18 @@ header {
   right: 0;
   background: rgba(44, 40, 36, 0.9);
   z-index: 999;
-  display: none; }
+  opacity: 1;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s; }
   @media (max-width: 599px) {
     .works-tutorial-wrapper {
       display: block; } }
   .works-tutorial-wrapper .works-tutorial-box {
     width: 100%;
     max-width: 580px;
-    margin: 100px auto 0 auto;
+    margin: 50px auto 0 auto;
     background: #2c2824;
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -1504,7 +1508,7 @@ header {
       -o-border-radius: 10px; }
 
 .works-tutorial-wrapper-hide {
-  display: none; }
+  opacity: 0; }
 
 .member-content {
   background: url(../images/workBG.png) top left repeat;
@@ -1668,8 +1672,9 @@ header {
               font-size: 1.875em;
               line-height: 1; }
             .member-content .members .member-thumbnail-wrap .member-thumbnail-block .member-card-front .front-left .front-bottom {
-              width: 100%;
-              margin-top: 100%; }
+              width: 76%;
+              position: absolute;
+              bottom: 0; }
               .member-content .members .member-thumbnail-wrap .member-thumbnail-block .member-card-front .front-left .front-bottom .divider {
                 margin-bottom: 5px; }
               .member-content .members .member-thumbnail-wrap .member-thumbnail-block .member-card-front .front-left .front-bottom .fcard-role {
@@ -1710,8 +1715,9 @@ header {
               line-height: 1; }
             .member-content .members .member-thumbnail-wrap .member-thumbnail-block .member-card-back .back-right .back-bottom {
               font-family: "Basic Sans Alt-Light";
-              width: 100%;
-              margin-top: 100%; }
+              width: 76%;
+              position: absolute;
+              bottom: 0; }
               .member-content .members .member-thumbnail-wrap .member-thumbnail-block .member-card-back .back-right .back-bottom .divider {
                 margin-bottom: 5px; }
               .member-content .members .member-thumbnail-wrap .member-thumbnail-block .member-card-back .back-right .back-bottom .bcard-role:before {
@@ -1724,6 +1730,14 @@ header {
           .member-content .members .member-thumbnail-wrap .member-thumbnail-block .member-card-back .back-left {
             float: right;
             width: 50%; }
+        .member-content .members .member-thumbnail-wrap .member-thumbnail-block:hover .member-card {
+          transform: rotateY(180deg); }
+          .member-content .members .member-thumbnail-wrap .member-thumbnail-block:hover .member-card .member-card-front p, .member-content .members .member-thumbnail-wrap .member-thumbnail-block:hover .member-card .member-card-front .divider {
+            opacity: 0;
+            -moz-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
+            transition: all 0.3s; }
         @media (min-width: 1200px) {
           .member-content .members .member-thumbnail-wrap .member-thumbnail-block {
             width: 350px; } }
@@ -1967,7 +1981,8 @@ header {
           padding: 30px 15px 0 15px; } }
   .contact-content .contact-service-process .service-process-block {
     padding: 9%;
-    background: #fff2cc; }
+    background: #fff2cc url(../images/teamBG-grid.svg) top left repeat;
+    background-size: 10px 10px; }
     @media (max-width: 599px) {
       .contact-content .contact-service-process .service-process-block {
         padding-top: 100px; } }
