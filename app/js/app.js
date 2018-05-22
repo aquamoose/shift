@@ -350,7 +350,15 @@ function initHome() {
         $coop.css('opacity', '1');
         runUp();
 	}, 5000);
-	
+	$('.audio-wrap').click(function(){
+		if($('.audio-wave span').hasClass('audio-pause')) {
+			$('.audio-wave span').removeClass('audio-pause');
+			$('audio').prop('muted', false);
+		} else {
+			$('.audio-wave span').addClass('audio-pause');
+			$('audio').prop('muted', true);
+		}
+	});
 }
 function initWorks() {
 	initGlobal();
