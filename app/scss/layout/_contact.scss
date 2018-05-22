@@ -241,13 +241,31 @@
 				background: $black url(../images/service-04.png) center no-repeat;
 			}
 			.record {
-				background: $black url(../images/service-02.png) center no-repeat;
+				background: $blue url(../images/service-02.png) center no-repeat;
 			}
 			.advertising {
 				background: $black url(../images/service-03.png) center no-repeat;
+				// @include for-phone-only {
+				// 	background: $black url(../images/service-03.png) center no-repeat;
+				// }
+				// @include for-tablet-portrait-up {
+				// 	background: $blue url(../images/service-03.png) center no-repeat;
+				// }
+				// @include for-mid-foundation-up {
+				// 	background: $black url(../images/service-03.png) center no-repeat;
+				// }
 			}
 			.mv {
-				background: $black url(../images/service-05.png) center no-repeat;
+				background: $blue url(../images/service-05.png) center no-repeat;
+				// @include for-phone-only {
+				// 	background: $blue url(../images/service-05.png) center no-repeat;
+				// }
+				// @include for-tablet-portrait-up {
+				// 	background: $black url(../images/service-05.png) center no-repeat;
+				// }
+				// @include for-mid-foundation-up {
+				// 	background: $blue url(../images/service-05.png) center no-repeat;
+				// }
 			}
 			.photo, .record, .advertising, .mv {
 				padding-bottom: 360px;

@@ -89,6 +89,9 @@
 			right: -40px;
 			top: 0;
 			@include transition(all .3s);
+			@include for-mid-desktop-up {
+				right: -80px;
+			}
 			.new-work-button {
 				position: absolute;
 				left: 10px;
